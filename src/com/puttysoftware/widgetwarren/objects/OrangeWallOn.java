@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericToggleWall;
 public class OrangeWallOn extends GenericToggleWall {
     // Constructors
     public OrangeWallOn() {
-        super(true);
+	super(true);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Orange Wall On";
+	return "Orange Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Orange Walls On";
+	return "Orange Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Orange Walls On can NOT be walked through, and will change to Orange Walls Off when a Orange Button is pressed.";
+	return "Orange Walls On can NOT be walked through, and will change to Orange Walls Off when a Orange Button is pressed.";
     }
 }

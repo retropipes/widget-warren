@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericDirectTeleportTo;
 public class SeaweedHouse extends GenericDirectTeleportTo {
     // Constructors
     public SeaweedHouse() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Seaweed House";
+	return "Seaweed House";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Houses";
+	return "Seaweed Houses";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Houses send you inside when walked on.";
+	return "Seaweed Houses send you inside when walked on.";
     }
 }

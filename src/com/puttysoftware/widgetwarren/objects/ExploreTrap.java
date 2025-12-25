@@ -15,31 +15,28 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class ExploreTrap extends GenericTrap {
     // Constructors
     public ExploreTrap() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Explore Trap";
+	return "Explore Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Explore Traps";
+	return "Explore Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_CHANGE);
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .addVisionMode(MazeConstants.VISION_MODE_EXPLORE);
-        WidgetWarren.getApplication().getGameManager().decay();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_CHANGE);
+	WidgetWarren.getApplication().getMazeManager().getMaze().addVisionMode(MazeConstants.VISION_MODE_EXPLORE);
+	WidgetWarren.getApplication().getGameManager().decay();
     }
 
     @Override
     public String getDescription() {
-        return "Explore Traps turn exploring mode on, then disappear.";
+	return "Explore Traps turn exploring mode on, then disappear.";
     }
 }

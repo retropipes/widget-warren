@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericPort;
 public class LPort extends GenericPort {
     // Constructors
     public LPort() {
-        super(new LPlug(), 'L');
+	super(new LPlug(), 'L');
     }
 }

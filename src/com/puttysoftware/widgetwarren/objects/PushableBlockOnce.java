@@ -17,32 +17,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class PushableBlockOnce extends GenericMovableObject {
     // Constructors
     public PushableBlockOnce() {
-        super(true, false);
+	super(true, false);
     }
 
     @Override
     public String getName() {
-        return "Pushable Block Once";
+	return "Pushable Block Once";
     }
 
     @Override
     public String getPluralName() {
-        return "Pushable Blocks Once";
+	return "Pushable Blocks Once";
     }
 
     @Override
-    public void pushAction(final ObjectInventory inv, final MazeObject mo,
-            final int x, final int y, final int pushX, final int pushY) {
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().updatePushedPosition(x, y, pushX, pushY, this);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_PUSH);
-        app.getGameManager().morphOther(new Wall(), pushX, pushY,
-                MazeConstants.LAYER_OBJECT);
+    public void pushAction(final ObjectInventory inv, final MazeObject mo, final int x, final int y, final int pushX,
+	    final int pushY) {
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().updatePushedPosition(x, y, pushX, pushY, this);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_PUSH);
+	app.getGameManager().morphOther(new Wall(), pushX, pushY, MazeConstants.LAYER_OBJECT);
     }
 
     @Override
     public String getDescription() {
-        return "Pushable Blocks Once can only be pushed once, before turning into a wall.";
+	return "Pushable Blocks Once can only be pushed once, before turning into a wall.";
     }
 }

@@ -14,32 +14,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class SkyLock extends GenericSingleLock {
     // Constructors
     public SkyLock() {
-        super(new SkyKey());
+	super(new SkyKey());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need a sky key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need a sky key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Sky Lock";
+	return "Sky Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Locks";
+	return "Sky Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Locks require Sky Keys to open.";
+	return "Sky Locks require Sky Keys to open.";
     }
 }

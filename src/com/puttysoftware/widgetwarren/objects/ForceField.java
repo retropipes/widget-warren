@@ -14,30 +14,28 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class ForceField extends GenericField {
     // Constructors
     public ForceField() {
-        super(new EnergySphere());
+	super(new EnergySphere());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        WidgetWarren.getApplication().showMessage("You'll get zapped");
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_FORCE_FIELD);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	WidgetWarren.getApplication().showMessage("You'll get zapped");
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_FORCE_FIELD);
     }
 
     @Override
     public String getName() {
-        return "Force Field";
+	return "Force Field";
     }
 
     @Override
     public String getPluralName() {
-        return "Force Fields";
+	return "Force Fields";
     }
 
     @Override
     public String getDescription() {
-        return "Force Fields block movement without an Energy Sphere.";
+	return "Force Fields block movement without an Energy Sphere.";
     }
 }

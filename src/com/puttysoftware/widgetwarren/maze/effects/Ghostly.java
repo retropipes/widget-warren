@@ -11,13 +11,12 @@ import com.puttysoftware.widgetwarren.objects.GhostAmulet;
 public class Ghostly extends MazeEffect {
     // Constructor
     public Ghostly(final int newRounds) {
-        super("Ghostly", newRounds);
+	super("Ghostly", newRounds);
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        WidgetWarren.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new GhostAmulet());
+	// Remove item that granted effect from inventory
+	WidgetWarren.getApplication().getGameManager().getObjectInventory().removeItem(new GhostAmulet());
     }
 }

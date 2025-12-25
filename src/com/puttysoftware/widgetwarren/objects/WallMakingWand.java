@@ -11,28 +11,27 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 
 public class WallMakingWand extends GenericWand {
     public WallMakingWand() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Wall-Making Wand";
+	return "Wall-Making Wand";
     }
 
     @Override
     public String getPluralName() {
-        return "Wall-Making Wands";
+	return "Wall-Making Wands";
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(new Wall(), x, y, z);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_CREATE);
+	this.useAction(new Wall(), x, y, z);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_CREATE);
     }
 
     @Override
     public String getDescription() {
-        return "Wall-Making Wands will create an ordinary wall in the target square when used.";
+	return "Wall-Making Wands will create an ordinary wall in the target square when used.";
     }
 }

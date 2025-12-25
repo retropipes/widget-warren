@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMultipleKey;
 public class SilverSquare extends GenericMultipleKey {
     // Constructors
     public SilverSquare() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Silver Square";
+	return "Silver Square";
     }
 
     @Override
     public String getPluralName() {
-        return "Silver Squares";
+	return "Silver Squares";
     }
 
     @Override
     public String getDescription() {
-        return "Silver Squares are the keys to Silver Walls.";
+	return "Silver Squares are the keys to Silver Walls.";
     }
 }

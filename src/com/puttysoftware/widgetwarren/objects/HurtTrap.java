@@ -17,35 +17,31 @@ public class HurtTrap extends GenericTrap {
 
     // Constructors
     public HurtTrap() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Hurt Trap";
+	return "Hurt Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Hurt Traps";
+	return "Hurt Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        this.damage = WidgetWarren.getApplication().getMazeManager().getMaze()
-                .getMaximumHP() / 50;
-        if (this.damage < 1) {
-            this.damage = 1;
-        }
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .doDamage(this.damage);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_BARRIER);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	this.damage = WidgetWarren.getApplication().getMazeManager().getMaze().getMaximumHP() / 50;
+	if (this.damage < 1) {
+	    this.damage = 1;
+	}
+	WidgetWarren.getApplication().getMazeManager().getMaze().doDamage(this.damage);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_BARRIER);
     }
 
     @Override
     public String getDescription() {
-        return "Hurt Traps hurt you when stepped on.";
+	return "Hurt Traps hurt you when stepped on.";
     }
 }

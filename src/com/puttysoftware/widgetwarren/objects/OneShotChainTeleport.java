@@ -30,47 +30,42 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class OneShotChainTeleport extends GenericTeleport {
     // Constructors
     public OneShotChainTeleport() {
-        super(0, 0, 0);
+	super(0, 0, 0);
     }
 
-    public OneShotChainTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor);
+    public OneShotChainTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().decay();
-        app.getGameManager().updatePositionAbsoluteNoEvents(
-                this.getDestinationRow(), this.getDestinationColumn(),
-                this.getDestinationFloor(), this.getDestinationLevel());
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().decay();
+	app.getGameManager().updatePositionAbsoluteNoEvents(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor(), this.getDestinationLevel());
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "One-Shot Chain Teleport";
+	return "One-Shot Chain Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "One-Shot Chain Teleports";
+	return "One-Shot Chain Teleports";
     }
 
     @Override
     public MazeObject editorPropertiesHook() {
-        final MazeEditor me = WidgetWarren.getApplication().getEditor();
-        final MazeObject mo = me
-                .editTeleportDestination(MazeEditor.TELEPORT_TYPE_ONESHOT);
-        return mo;
+	final MazeEditor me = WidgetWarren.getApplication().getEditor();
+	final MazeObject mo = me.editTeleportDestination(MazeEditor.TELEPORT_TYPE_ONESHOT);
+	return mo;
     }
 
     @Override
     public String getDescription() {
-        return "One-Shot Chain Teleports behave like regular Teleports, except they only work once.";
+	return "One-Shot Chain Teleports behave like regular Teleports, except they only work once.";
     }
 }

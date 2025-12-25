@@ -40,156 +40,152 @@ class RuleSetEditor {
 
     // Constructors
     public RuleSetEditor() {
-        this.setUpGUI();
+	this.setUpGUI();
     }
 
     // Methods
     public void setRuleSet(final RuleSet gen) {
-        this.generator = gen;
-        this.loadRuleSetEditor();
+	this.generator = gen;
+	this.loadRuleSetEditor();
     }
 
     public void showRuleSetEditor() {
-        WidgetWarren.getApplication().getRuleSetPicker().hideOutput();
-        this.editFrame.setVisible(true);
+	WidgetWarren.getApplication().getRuleSetPicker().hideOutput();
+	this.editFrame.setVisible(true);
     }
 
     void hideRuleSetEditor() {
-        this.editFrame.setVisible(false);
-        WidgetWarren.getApplication().getRuleSetPicker().showOutput();
+	this.editFrame.setVisible(false);
+	WidgetWarren.getApplication().getRuleSetPicker().showOutput();
     }
 
     void saveRuleSetEditor() {
-        try {
-            final int min = Integer.parseInt(this.minQuantity.getText());
-            final int max = Integer.parseInt(this.maxQuantity.getText());
-            final int gen = Integer.parseInt(this.generateQuantity.getText());
-            final boolean req = this.required.isSelected();
-            if (this.percentage.isSelected()) {
-                this.generator.setQuantityRelative(min, max);
-            } else {
-                this.generator.setQuantityAbsolute(min, max);
-            }
-            this.generator.setGenerateQuantity(gen);
-            this.generator.setRequired(req);
-        } catch (final NumberFormatException nf) {
-            // Ignore
-        } catch (final IllegalArgumentException ia) {
-            // Ignore
-        }
+	try {
+	    final int min = Integer.parseInt(this.minQuantity.getText());
+	    final int max = Integer.parseInt(this.maxQuantity.getText());
+	    final int gen = Integer.parseInt(this.generateQuantity.getText());
+	    final boolean req = this.required.isSelected();
+	    if (this.percentage.isSelected()) {
+		this.generator.setQuantityRelative(min, max);
+	    } else {
+		this.generator.setQuantityAbsolute(min, max);
+	    }
+	    this.generator.setGenerateQuantity(gen);
+	    this.generator.setRequired(req);
+	} catch (final NumberFormatException nf) {
+	    // Ignore
+	} catch (final IllegalArgumentException ia) {
+	    // Ignore
+	}
     }
 
     private void loadRuleSetEditor() {
-        this.required.setSelected(this.generator.isRequired());
-        this.percentage.setSelected(this.generator.getPercentageFlag());
-        this.minQuantity.setText(
-                Integer.toString(this.generator.getMinimumRequiredQuantity()));
-        this.maxQuantity.setText(
-                Integer.toString(this.generator.getMaximumRequiredQuantity()));
-        this.generateQuantity.setText(
-                Integer.toString(this.generator.getGenerateQuantity()));
+	this.required.setSelected(this.generator.isRequired());
+	this.percentage.setSelected(this.generator.getPercentageFlag());
+	this.minQuantity.setText(Integer.toString(this.generator.getMinimumRequiredQuantity()));
+	this.maxQuantity.setText(Integer.toString(this.generator.getMaximumRequiredQuantity()));
+	this.generateQuantity.setText(Integer.toString(this.generator.getGenerateQuantity()));
     }
 
     private void setUpGUI() {
-        this.handler = new EventHandler();
-        this.editFrame = new JFrame("Rule Set Editor");
-        final Image iconlogo = LogoManager.getLogo();
-        this.editFrame.setIconImage(iconlogo);
-        this.mainEditPane = new Container();
-        this.contentPane = new Container();
-        this.buttonPane = new Container();
-        this.editOK = new JButton("OK");
-        this.editOK.setDefaultCapable(true);
-        this.editFrame.getRootPane().setDefaultButton(this.editOK);
-        this.editCancel = new JButton("Cancel");
-        this.editCancel.setDefaultCapable(false);
-        this.required = new JCheckBox("Is Object Required?", true);
-        this.percentage = new JCheckBox("Are Quantities Percents?", false);
-        this.minQuantity = new JTextField("");
-        this.maxQuantity = new JTextField("");
-        this.generateQuantity = new JTextField("");
-        this.editFrame.setContentPane(this.mainEditPane);
-        this.editFrame
-                .setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        this.editFrame.addWindowListener(this.handler);
-        this.mainEditPane.setLayout(new BorderLayout());
-        this.editFrame.setResizable(false);
-        this.contentPane.setLayout(new GridLayout(8, 1));
-        this.contentPane.add(this.required);
-        this.contentPane.add(this.percentage);
-        this.contentPane.add(new JLabel("Minimum Quantity"));
-        this.contentPane.add(this.minQuantity);
-        this.contentPane.add(new JLabel("Maximum Quantity"));
-        this.contentPane.add(this.maxQuantity);
-        this.contentPane.add(new JLabel("Generate Percentage"));
-        this.contentPane.add(this.generateQuantity);
-        this.buttonPane.setLayout(new FlowLayout());
-        this.buttonPane.add(this.editOK);
-        this.buttonPane.add(this.editCancel);
-        this.mainEditPane.add(this.contentPane, BorderLayout.CENTER);
-        this.mainEditPane.add(this.buttonPane, BorderLayout.SOUTH);
-        this.editOK.addActionListener(this.handler);
-        this.editCancel.addActionListener(this.handler);
-        this.editFrame.pack();
+	this.handler = new EventHandler();
+	this.editFrame = new JFrame("Rule Set Editor");
+	final Image iconlogo = LogoManager.getLogo();
+	this.editFrame.setIconImage(iconlogo);
+	this.mainEditPane = new Container();
+	this.contentPane = new Container();
+	this.buttonPane = new Container();
+	this.editOK = new JButton("OK");
+	this.editOK.setDefaultCapable(true);
+	this.editFrame.getRootPane().setDefaultButton(this.editOK);
+	this.editCancel = new JButton("Cancel");
+	this.editCancel.setDefaultCapable(false);
+	this.required = new JCheckBox("Is Object Required?", true);
+	this.percentage = new JCheckBox("Are Quantities Percents?", false);
+	this.minQuantity = new JTextField("");
+	this.maxQuantity = new JTextField("");
+	this.generateQuantity = new JTextField("");
+	this.editFrame.setContentPane(this.mainEditPane);
+	this.editFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	this.editFrame.addWindowListener(this.handler);
+	this.mainEditPane.setLayout(new BorderLayout());
+	this.editFrame.setResizable(false);
+	this.contentPane.setLayout(new GridLayout(8, 1));
+	this.contentPane.add(this.required);
+	this.contentPane.add(this.percentage);
+	this.contentPane.add(new JLabel("Minimum Quantity"));
+	this.contentPane.add(this.minQuantity);
+	this.contentPane.add(new JLabel("Maximum Quantity"));
+	this.contentPane.add(this.maxQuantity);
+	this.contentPane.add(new JLabel("Generate Percentage"));
+	this.contentPane.add(this.generateQuantity);
+	this.buttonPane.setLayout(new FlowLayout());
+	this.buttonPane.add(this.editOK);
+	this.buttonPane.add(this.editCancel);
+	this.mainEditPane.add(this.contentPane, BorderLayout.CENTER);
+	this.mainEditPane.add(this.buttonPane, BorderLayout.SOUTH);
+	this.editOK.addActionListener(this.handler);
+	this.editCancel.addActionListener(this.handler);
+	this.editFrame.pack();
     }
 
     private class EventHandler implements ActionListener, WindowListener {
-        public EventHandler() {
-            // Do nothing
-        }
+	public EventHandler() {
+	    // Do nothing
+	}
 
-        // Handle buttons
-        @Override
-        public void actionPerformed(final ActionEvent e) {
-            try {
-                final RuleSetEditor ge = RuleSetEditor.this;
-                final String cmd = e.getActionCommand();
-                if (cmd.equals("OK")) {
-                    ge.saveRuleSetEditor();
-                    ge.hideRuleSetEditor();
-                } else if (cmd.equals("Cancel")) {
-                    ge.hideRuleSetEditor();
-                }
-            } catch (final Exception ex) {
-                WidgetWarren.logError(ex);
-            }
-        }
+	// Handle buttons
+	@Override
+	public void actionPerformed(final ActionEvent e) {
+	    try {
+		final RuleSetEditor ge = RuleSetEditor.this;
+		final String cmd = e.getActionCommand();
+		if (cmd.equals("OK")) {
+		    ge.saveRuleSetEditor();
+		    ge.hideRuleSetEditor();
+		} else if (cmd.equals("Cancel")) {
+		    ge.hideRuleSetEditor();
+		}
+	    } catch (final Exception ex) {
+		WidgetWarren.logError(ex);
+	    }
+	}
 
-        // handle window
-        @Override
-        public void windowOpened(final WindowEvent e) {
-            // Do nothing
-        }
+	// handle window
+	@Override
+	public void windowOpened(final WindowEvent e) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowClosing(final WindowEvent e) {
-            final RuleSetEditor pm = RuleSetEditor.this;
-            pm.hideRuleSetEditor();
-        }
+	@Override
+	public void windowClosing(final WindowEvent e) {
+	    final RuleSetEditor pm = RuleSetEditor.this;
+	    pm.hideRuleSetEditor();
+	}
 
-        @Override
-        public void windowClosed(final WindowEvent e) {
-            // Do nothing
-        }
+	@Override
+	public void windowClosed(final WindowEvent e) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowIconified(final WindowEvent e) {
-            // Do nothing
-        }
+	@Override
+	public void windowIconified(final WindowEvent e) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowDeiconified(final WindowEvent e) {
-            // Do nothing
-        }
+	@Override
+	public void windowDeiconified(final WindowEvent e) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowActivated(final WindowEvent e) {
-            // Do nothing
-        }
+	@Override
+	public void windowActivated(final WindowEvent e) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowDeactivated(final WindowEvent e) {
-            // Do nothing
-        }
+	@Override
+	public void windowDeactivated(final WindowEvent e) {
+	    // Do nothing
+	}
     }
 }

@@ -13,29 +13,27 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class BrightnessGem extends GenericGem {
     // Constructors
     public BrightnessGem() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Brightness Gem";
+	return "Brightness Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Brightness Gems";
+	return "Brightness Gems";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .setVisionRadiusToMaximum();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_LIGHT);
+	WidgetWarren.getApplication().getMazeManager().getMaze().setVisionRadiusToMaximum();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_LIGHT);
     }
 
     @Override
     public String getDescription() {
-        return "Brightness Gems increase the visible area to its maximum.";
+	return "Brightness Gems increase the visible area to its maximum.";
     }
 }

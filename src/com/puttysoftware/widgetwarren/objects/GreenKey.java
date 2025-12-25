@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericSingleKey;
 public class GreenKey extends GenericSingleKey {
     // Constructors
     public GreenKey() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Green Key";
+	return "Green Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Green Keys";
+	return "Green Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Green Keys will unlock Green Locks, and can only be used once.";
+	return "Green Keys will unlock Green Locks, and can only be used once.";
     }
 }

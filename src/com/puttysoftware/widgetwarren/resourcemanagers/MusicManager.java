@@ -19,50 +19,50 @@ public class MusicManager {
     private static OggPlayer CURRENT_MUSIC;
 
     private static OggPlayer getMusic(final String filename) {
-        try {
-            final URL url = MusicManager.LOAD_CLASS.getResource(
-                    MusicManager.LOAD_PATH + filename.toLowerCase() + ".ogg");
-            return new OggPlayer(url);
-        } catch (final NullPointerException np) {
-            return null;
-        }
+	try {
+	    final URL url = MusicManager.LOAD_CLASS
+		    .getResource(MusicManager.LOAD_PATH + filename.toLowerCase() + ".ogg");
+	    return new OggPlayer(url);
+	} catch (final NullPointerException np) {
+	    return null;
+	}
     }
 
     private static void playMusic(final String musicName) {
-        MusicManager.CURRENT_MUSIC = MusicManager.getMusic(musicName);
-        if (MusicManager.CURRENT_MUSIC != null) {
-            // Play the music
-            MusicManager.CURRENT_MUSIC.playLoop();
-        }
+	MusicManager.CURRENT_MUSIC = MusicManager.getMusic(musicName);
+	if (MusicManager.CURRENT_MUSIC != null) {
+	    // Play the music
+	    MusicManager.CURRENT_MUSIC.playLoop();
+	}
     }
 
     public static void playExploringMusic() {
-        if (PreferencesManager.getMusicEnabled()) {
-            MusicManager.playMusic("exploring");
-        }
+	if (PreferencesManager.getMusicEnabled()) {
+	    MusicManager.playMusic("exploring");
+	}
     }
 
     public static void stopMusic() {
-        if (MusicManager.isMusicPlaying()) {
-            // Stop the music
-            try {
-                MusicManager.CURRENT_MUSIC.stopLoop();
-            } catch (final BufferUnderflowException bue) {
-                // Ignore
-            } catch (final NullPointerException np) {
-                // Ignore
-            } catch (final Throwable t) {
-                WidgetWarren.logError(t);
-            }
-        }
+	if (MusicManager.isMusicPlaying()) {
+	    // Stop the music
+	    try {
+		MusicManager.CURRENT_MUSIC.stopLoop();
+	    } catch (final BufferUnderflowException bue) {
+		// Ignore
+	    } catch (final NullPointerException np) {
+		// Ignore
+	    } catch (final Throwable t) {
+		WidgetWarren.logError(t);
+	    }
+	}
     }
 
     private static boolean isMusicPlaying() {
-        if (MusicManager.CURRENT_MUSIC != null) {
-            if (MusicManager.CURRENT_MUSIC.isPlaying()) {
-                return true;
-            }
-        }
-        return false;
+	if (MusicManager.CURRENT_MUSIC != null) {
+	    if (MusicManager.CURRENT_MUSIC.isPlaying()) {
+		return true;
+	    }
+	}
+	return false;
     }
 }

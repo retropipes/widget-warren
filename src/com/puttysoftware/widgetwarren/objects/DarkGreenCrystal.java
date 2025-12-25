@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericProgrammableKey;
 public class DarkGreenCrystal extends GenericProgrammableKey {
     // Constructors
     public DarkGreenCrystal() {
-        super("Dark Green");
+	super("Dark Green");
     }
 }

@@ -38,127 +38,125 @@ public class PreferencesManager {
 
     // Private constructor
     private PreferencesManager() {
-        // Do nothing
+	// Do nothing
     }
 
     // Methods
     public static boolean oneMove() {
-        return PreferencesManager.storeMgr.getBoolean("OneMove", true);
+	return PreferencesManager.storeMgr.getBoolean("OneMove", true);
     }
 
     static void setOneMove(final boolean value) {
-        PreferencesManager.storeMgr.setBoolean("OneMove", value);
+	PreferencesManager.storeMgr.setBoolean("OneMove", value);
     }
 
     public static boolean getSoundEnabled(final int snd) {
-        if (!PreferencesManager.storeMgr.getBoolean("SOUND_0", false)) {
-            return false;
-        } else {
-            return PreferencesManager.storeMgr.getBoolean("SOUND_" + snd, true);
-        }
+	if (!PreferencesManager.storeMgr.getBoolean("SOUND_0", false)) {
+	    return false;
+	} else {
+	    return PreferencesManager.storeMgr.getBoolean("SOUND_" + snd, true);
+	}
     }
 
     public static void setSoundEnabled(final int snd, final boolean status) {
-        PreferencesManager.storeMgr.setBoolean("SOUND_" + snd, status);
+	PreferencesManager.storeMgr.setBoolean("SOUND_" + snd, status);
     }
 
     public static boolean getMusicEnabled() {
-        return PreferencesManager.storeMgr.getBoolean("MusicEnabled", true);
+	return PreferencesManager.storeMgr.getBoolean("MusicEnabled", true);
     }
 
     public static void setMusicEnabled(final boolean status) {
-        PreferencesManager.storeMgr.setBoolean("MusicEnabled", status);
+	PreferencesManager.storeMgr.setBoolean("MusicEnabled", status);
     }
 
     public static MazeObject getEditorDefaultFill() {
-        final String choice = PreferencesManager.storeMgr
-                .getString("EditorDefaultFill", "Grass");
-        if (choice.equals("Tile")) {
-            return new Tile();
-        } else if (choice.equals("Grass")) {
-            return new Grass();
-        } else if (choice.equals("Dirt")) {
-            return new Dirt();
-        } else if (choice.equals("Snow")) {
-            return new Snow();
-        } else if (choice.equals("Tundra")) {
-            return new Tundra();
-        } else if (choice.equals("Sand")) {
-            return new Sand();
-        } else {
-            return null;
-        }
+	final String choice = PreferencesManager.storeMgr.getString("EditorDefaultFill", "Grass");
+	if (choice.equals("Tile")) {
+	    return new Tile();
+	} else if (choice.equals("Grass")) {
+	    return new Grass();
+	} else if (choice.equals("Dirt")) {
+	    return new Dirt();
+	} else if (choice.equals("Snow")) {
+	    return new Snow();
+	} else if (choice.equals("Tundra")) {
+	    return new Tundra();
+	} else if (choice.equals("Sand")) {
+	    return new Sand();
+	} else {
+	    return null;
+	}
     }
 
     static void setEditorDefaultFill(final String value) {
-        PreferencesManager.storeMgr.setString("EditorDefaultFill", value);
+	PreferencesManager.storeMgr.setString("EditorDefaultFill", value);
     }
 
     public static JFrame getPrefFrame() {
-        return PreferencesManager.guiMgr.getPrefFrame();
+	return PreferencesManager.guiMgr.getPrefFrame();
     }
 
     public static void showPrefs() {
-        PreferencesManager.guiMgr.showPrefs();
+	PreferencesManager.guiMgr.showPrefs();
     }
 
     private static String getPrefsDirectory() {
-        return SandboxManager.getSandboxManager().getSupportDirectory()
-                + File.separator;
+	return SandboxManager.getSandboxManager().getSupportDirectory() + File.separator;
     }
 
     private static String getPrefsFileExtension() {
-        return "." + Extension.getPreferencesExtension();
+	return "." + Extension.getPreferencesExtension();
     }
 
     private static String getPrefsFileName() {
-        final String osName = System.getProperty("os.name");
-        if (osName.indexOf("Mac OS X") != -1) {
-            // Mac OS X
-            return PreferencesManager.MAC_FILE;
-        } else if (osName.indexOf("Windows") != -1) {
-            // Windows
-            return PreferencesManager.WIN_FILE;
-        } else {
-            // Other - assume UNIX-like
-            return PreferencesManager.UNIX_FILE;
-        }
+	final String osName = System.getProperty("os.name");
+	if (osName.indexOf("Mac OS X") != -1) {
+	    // Mac OS X
+	    return PreferencesManager.MAC_FILE;
+	} else if (osName.indexOf("Windows") != -1) {
+	    // Windows
+	    return PreferencesManager.WIN_FILE;
+	} else {
+	    // Other - assume UNIX-like
+	    return PreferencesManager.UNIX_FILE;
+	}
     }
 
     private static String getPrefsFile() {
-        final StringBuilder b = new StringBuilder();
-        b.append(PreferencesManager.getPrefsDirectory());
-        b.append(PreferencesManager.getPrefsFileName());
-        b.append(PreferencesManager.getPrefsFileExtension());
-        return b.toString();
+	final StringBuilder b = new StringBuilder();
+	b.append(PreferencesManager.getPrefsDirectory());
+	b.append(PreferencesManager.getPrefsFileName());
+	b.append(PreferencesManager.getPrefsFileExtension());
+	return b.toString();
     }
 
     public static void writePrefs() {
-        try (BufferedOutputStream bos = new BufferedOutputStream(
-                new FileOutputStream(PreferencesManager.getPrefsFile()))) {
-            PreferencesManager.storeMgr.saveStore(bos);
-        } catch (final IOException io) {
-            // Ignore
-        }
+	try (BufferedOutputStream bos = new BufferedOutputStream(
+		new FileOutputStream(PreferencesManager.getPrefsFile()))) {
+	    PreferencesManager.storeMgr.saveStore(bos);
+	} catch (final IOException io) {
+	    // Ignore
+	}
     }
 
     static void readPrefs() {
-        try (BufferedInputStream bis = new BufferedInputStream(
-                new FileInputStream(PreferencesManager.getPrefsFile()))) {
-            // Read new preferences
-            PreferencesManager.storeMgr.loadStore(bis);
-        } catch (final IOException io) {
-            // Populate store with defaults
-            PreferencesManager.storeMgr.setString("LastDirOpen",
-                    SandboxManager.getSandboxManager().getDocumentsDirectory());
-            PreferencesManager.storeMgr.setString("LastDirSave",
-                    SandboxManager.getSandboxManager().getDocumentsDirectory());
-            PreferencesManager.storeMgr.setBoolean("OneMove", true);
-            for (int x = 0; x < PreferencesManager.SOUNDS_LENGTH; x++) {
-                PreferencesManager.storeMgr.setBoolean("SOUND_" + x, true);
-            }
-            PreferencesManager.storeMgr.setString("EditorDefaultFill", "Grass");
-            PreferencesManager.storeMgr.setBoolean("MusicEnabled", true);
-        }
+	try (BufferedInputStream bis = new BufferedInputStream(
+		new FileInputStream(PreferencesManager.getPrefsFile()))) {
+	    // Read new preferences
+	    PreferencesManager.storeMgr.loadStore(bis);
+	} catch (final IOException io) {
+	    // Populate store with defaults
+	    PreferencesManager.storeMgr.setString("LastDirOpen",
+		    SandboxManager.getSandboxManager().getDocumentsDirectory());
+	    PreferencesManager.storeMgr.setString("LastDirSave",
+		    SandboxManager.getSandboxManager().getDocumentsDirectory());
+	    PreferencesManager.storeMgr.setBoolean("OneMove", true);
+	    for (int x = 0; x < PreferencesManager.SOUNDS_LENGTH; x++) {
+		PreferencesManager.storeMgr.setBoolean("SOUND_" + x, true);
+	    }
+	    PreferencesManager.storeMgr.setString("EditorDefaultFill", "Grass");
+	    PreferencesManager.storeMgr.setBoolean("MusicEnabled", true);
+	}
     }
 }

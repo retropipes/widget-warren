@@ -14,30 +14,30 @@ public class XMLExtension {
 
     // Methods
     public static String getXMLMazeExtension() {
-        return XMLExtension.XML_MAZE_EXTENSION;
+	return XMLExtension.XML_MAZE_EXTENSION;
     }
 
     public static String getXMLMazeExtensionWithPeriod() {
-        return "." + XMLExtension.XML_MAZE_EXTENSION;
+	return "." + XMLExtension.XML_MAZE_EXTENSION;
     }
 
     public static String getXMLGameExtension() {
-        return XMLExtension.XML_SAVED_GAME_EXTENSION;
+	return XMLExtension.XML_SAVED_GAME_EXTENSION;
     }
 
     public static String getXMLGameExtensionWithPeriod() {
-        return "." + XMLExtension.XML_SAVED_GAME_EXTENSION;
+	return "." + XMLExtension.XML_SAVED_GAME_EXTENSION;
     }
 
     public static String getXMLScoresExtensionWithPeriod() {
-        return "." + XMLExtension.XML_SCORES_EXTENSION;
+	return "." + XMLExtension.XML_SCORES_EXTENSION;
     }
 
     public static String getXMLRuleSetExtension() {
-        return XMLExtension.XML_RULE_SET_EXTENSION;
+	return XMLExtension.XML_RULE_SET_EXTENSION;
     }
 
     public static String getXMLRuleSetExtensionWithPeriod() {
-        return "." + XMLExtension.XML_RULE_SET_EXTENSION;
+	return "." + XMLExtension.XML_RULE_SET_EXTENSION;
     }
 }

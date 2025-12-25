@@ -14,21 +14,21 @@ public class Bow extends GenericBow {
 
     // Constructors
     public Bow() {
-        super(Bow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_PLAIN);
+	super(Bow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_PLAIN);
     }
 
     @Override
     public String getName() {
-        return "Bow";
+	return "Bow";
     }
 
     @Override
     public String getPluralName() {
-        return "Bows";
+	return "Bows";
     }
 
     @Override
     public String getDescription() {
-        return "Bows shoot an unlimited supply of normal arrows.";
+	return "Bows shoot an unlimited supply of normal arrows.";
     }
 }

@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericCarpet;
 public class MagentaCarpet extends GenericCarpet {
     // Constructors
     public MagentaCarpet() {
-        super("Magenta");
+	super("Magenta");
     }
 }

@@ -14,32 +14,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class RoseLock extends GenericSingleLock {
     // Constructors
     public RoseLock() {
-        super(new RoseKey());
+	super(new RoseKey());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need a rose key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need a rose key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Rose Lock";
+	return "Rose Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Locks";
+	return "Rose Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Locks require Rose Keys to open.";
+	return "Rose Locks require Rose Keys to open.";
     }
 }

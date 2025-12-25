@@ -14,32 +14,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class TabletSlot extends GenericInfiniteLock {
     // Constructors
     public TabletSlot() {
-        super(new Tablet());
+	super(new Tablet());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need a tablet");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need a tablet");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Tablet Slot";
+	return "Tablet Slot";
     }
 
     @Override
     public String getPluralName() {
-        return "Tablet Slots";
+	return "Tablet Slots";
     }
 
     @Override
     public String getDescription() {
-        return "Tablet Slots disappear when filled with a Tablet.";
+	return "Tablet Slots disappear when filled with a Tablet.";
     }
 }

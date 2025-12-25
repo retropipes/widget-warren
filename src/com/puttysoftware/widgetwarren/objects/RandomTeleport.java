@@ -15,41 +15,38 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class RandomTeleport extends GenericRandomTeleport {
     // Constructors
     public RandomTeleport() {
-        super(0, 0);
+	super(0, 0);
     }
 
-    public RandomTeleport(final int newRandomRangeY,
-            final int newRandomRangeX) {
-        super(newRandomRangeY, newRandomRangeX);
+    public RandomTeleport(final int newRandomRangeY, final int newRandomRangeX) {
+	super(newRandomRangeY, newRandomRangeX);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        int dr, dc;
-        do {
-            dr = this.getDestinationRow();
-            dc = this.getDestinationColumn();
-        } while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
-        app.getGameManager().updatePositionRelative(dr, dc);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	int dr, dc;
+	do {
+	    dr = this.getDestinationRow();
+	    dc = this.getDestinationColumn();
+	} while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
+	app.getGameManager().updatePositionRelative(dr, dc);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "Random Teleport";
+	return "Random Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Random Teleports";
+	return "Random Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "Random Teleports, unlike regular Teleports, send you to a randomly chosen destination.";
+	return "Random Teleports, unlike regular Teleports, send you to a randomly chosen destination.";
     }
 }

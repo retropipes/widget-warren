@@ -17,56 +17,49 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class Water extends GenericField {
     // Constructors
     public Water() {
-        super(new AquaBoots(), true);
+	super(new AquaBoots(), true);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_ON_WATER);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_ON_WATER);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        WidgetWarren.getApplication().showMessage("You'll drown");
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WATER);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	WidgetWarren.getApplication().showMessage("You'll drown");
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WATER);
     }
 
     @Override
-    public void pushIntoAction(final ObjectInventory inv,
-            final MazeObject pushed, final int x, final int y, final int z) {
-        final Application app = WidgetWarren.getApplication();
-        if (pushed.isPushable()) {
-            app.getGameManager().morph(new SunkenBlock(), x, y, z,
-                    MazeConstants.LAYER_GROUND);
-            app.getGameManager().morph(new Empty(), x, y, z,
-                    MazeConstants.LAYER_OBJECT);
-            SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                    SoundConstants.SOUND_SINK_BLOCK);
-        }
+    public void pushIntoAction(final ObjectInventory inv, final MazeObject pushed, final int x, final int y,
+	    final int z) {
+	final Application app = WidgetWarren.getApplication();
+	if (pushed.isPushable()) {
+	    app.getGameManager().morph(new SunkenBlock(), x, y, z, MazeConstants.LAYER_GROUND);
+	    app.getGameManager().morph(new Empty(), x, y, z, MazeConstants.LAYER_OBJECT);
+	    SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_SINK_BLOCK);
+	}
     }
 
     @Override
     public String getName() {
-        return "Water";
+	return "Water";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Water";
+	return "Squares of Water";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Water is too unstable to walk on without Aqua Boots.";
+	return "Water is too unstable to walk on without Aqua Boots.";
     }
 }

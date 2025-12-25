@@ -22,34 +22,31 @@ public class XMLRuleSetLoadTask extends Thread {
 
     // Constructors
     public XMLRuleSetLoadTask(final String file) {
-        this.filename = file;
-        this.setName("XML Rule Set File Reader");
+	this.filename = file;
+	this.setName("XML Rule Set File Reader");
     }
 
     // Methods
     @Override
     public void run() {
-        final Application app = WidgetWarren.getApplication();
-        final String sg = "Rule Set";
-        try (XDataReader ruleSetFile = DataIOFactory.createTagReader(this.filename,
-                "ruleset")) {
-            final int magic = ruleSetFile.readInt();
-            if (magic == RuleSetConstants.MAGIC_NUMBER_2) {
-                // Format 2 file
-                app.getObjects().readRuleSetXML(ruleSetFile,
-                        RuleSetConstants.FORMAT_2);
-            }
-            ruleSetFile.close();
-            CommonDialogs.showTitledDialog(sg + " file loaded.",
-                    "Rule Set Picker");
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-            app.getMazeManager().handleDeferredSuccess(false);
-        } catch (final IOException ie) {
-            CommonDialogs.showDialog(ie.getMessage());
-        } catch (final Exception ex) {
-            WidgetWarren.logError(ex);
-        }
+	final Application app = WidgetWarren.getApplication();
+	final String sg = "Rule Set";
+	try (XDataReader ruleSetFile = DataIOFactory.createTagReader(this.filename, "ruleset")) {
+	    final int magic = ruleSetFile.readInt();
+	    if (magic == RuleSetConstants.MAGIC_NUMBER_2) {
+		// Format 2 file
+		app.getObjects().readRuleSetXML(ruleSetFile, RuleSetConstants.FORMAT_2);
+	    }
+	    ruleSetFile.close();
+	    CommonDialogs.showTitledDialog(sg + " file loaded.", "Rule Set Picker");
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Loading the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	    app.getMazeManager().handleDeferredSuccess(false);
+	} catch (final IOException ie) {
+	    CommonDialogs.showDialog(ie.getMessage());
+	} catch (final Exception ex) {
+	    WidgetWarren.logError(ex);
+	}
     }
 }

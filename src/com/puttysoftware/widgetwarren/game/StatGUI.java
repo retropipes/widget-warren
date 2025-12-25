@@ -26,47 +26,41 @@ class StatGUI {
 
     // Constructors
     public StatGUI() {
-        this.setUpGUI();
+	this.setUpGUI();
     }
 
     // Methods
     public Container getStatsPane() {
-        return this.statsPane;
+	return this.statsPane;
     }
 
     public void updateStats() {
-        final Maze m = WidgetWarren.getApplication().getMazeManager().getMaze();
-        this.hpLabel.setText(m.getHPString());
-        this.poisonLabel.setText(m.getPoisonString());
-        this.timeLabel.setText(m.getTimeString());
+	final Maze m = WidgetWarren.getApplication().getMazeManager().getMaze();
+	this.hpLabel.setText(m.getHPString());
+	this.poisonLabel.setText(m.getPoisonString());
+	this.timeLabel.setText(m.getTimeString());
     }
 
     private void setUpGUI() {
-        this.statsPane = new Container();
-        this.statsPane.setLayout(new GridLayout(3, 1));
-        final BufferedImageIcon hpImage = StatImageManager
-                .getStatImage("health");
-        this.hpLabel = new JLabel("", hpImage, SwingConstants.LEFT);
-        this.statsPane.add(this.hpLabel);
-        final BufferedImageIcon poisonImage = StatImageManager
-                .getStatImage("poison");
-        this.poisonLabel = new JLabel("", poisonImage, SwingConstants.LEFT);
-        this.statsPane.add(this.poisonLabel);
-        final BufferedImageIcon timeImage = StatImageManager
-                .getStatImage("time");
-        this.timeLabel = new JLabel("", timeImage, SwingConstants.LEFT);
-        this.statsPane.add(this.timeLabel);
+	this.statsPane = new Container();
+	this.statsPane.setLayout(new GridLayout(3, 1));
+	final BufferedImageIcon hpImage = StatImageManager.getStatImage("health");
+	this.hpLabel = new JLabel("", hpImage, SwingConstants.LEFT);
+	this.statsPane.add(this.hpLabel);
+	final BufferedImageIcon poisonImage = StatImageManager.getStatImage("poison");
+	this.poisonLabel = new JLabel("", poisonImage, SwingConstants.LEFT);
+	this.statsPane.add(this.poisonLabel);
+	final BufferedImageIcon timeImage = StatImageManager.getStatImage("time");
+	this.timeLabel = new JLabel("", timeImage, SwingConstants.LEFT);
+	this.statsPane.add(this.timeLabel);
     }
 
     public void updateImages() {
-        final BufferedImageIcon hpImage = StatImageManager
-                .getStatImage("health");
-        this.hpLabel.setIcon(hpImage);
-        final BufferedImageIcon poisonImage = StatImageManager
-                .getStatImage("poison");
-        this.poisonLabel.setIcon(poisonImage);
-        final BufferedImageIcon timeImage = StatImageManager
-                .getStatImage("time");
-        this.timeLabel.setIcon(timeImage);
+	final BufferedImageIcon hpImage = StatImageManager.getStatImage("health");
+	this.hpLabel.setIcon(hpImage);
+	final BufferedImageIcon poisonImage = StatImageManager.getStatImage("poison");
+	this.poisonLabel.setIcon(poisonImage);
+	final BufferedImageIcon timeImage = StatImageManager.getStatImage("time");
+	this.timeLabel.setIcon(timeImage);
     }
 }

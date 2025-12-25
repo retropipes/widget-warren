@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericTeleportDown;
 public class StairsDown extends GenericTeleportDown {
     // Constructors
     public StairsDown() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Stairs Down";
+	return "Stairs Down";
     }
 
     @Override
     public String getPluralName() {
-        return "Sets of Stairs Down";
+	return "Sets of Stairs Down";
     }
 
     @Override
     public String getDescription() {
-        return "Stairs Down lead to the floor below.";
+	return "Stairs Down lead to the floor below.";
     }
 }

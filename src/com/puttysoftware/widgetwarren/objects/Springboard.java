@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericChainTeleportUp;
 public class Springboard extends GenericChainTeleportUp {
     // Constructors
     public Springboard() {
-        super(true);
+	super(true);
     }
 
     @Override
     public String getName() {
-        return "Springboard";
+	return "Springboard";
     }
 
     @Override
     public String getPluralName() {
-        return "Springboards";
+	return "Springboards";
     }
 
     @Override
     public String getDescription() {
-        return "Springboards bounce anything that wanders into them to the floor above. If one of these is placed on the top-most floor, it is impassable.";
+	return "Springboards bounce anything that wanders into them to the floor above. If one of these is placed on the top-most floor, it is impassable.";
     }
 }

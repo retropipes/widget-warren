@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericDirectTeleportTo;
 public class BlueHouse extends GenericDirectTeleportTo {
     // Constructors
     public BlueHouse() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Blue House";
+	return "Blue House";
     }
 
     @Override
     public String getPluralName() {
-        return "Blue Houses";
+	return "Blue Houses";
     }
 
     @Override
     public String getDescription() {
-        return "Blue Houses send you inside when walked on.";
+	return "Blue Houses send you inside when walked on.";
     }
 }

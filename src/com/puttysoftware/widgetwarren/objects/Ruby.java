@@ -14,27 +14,26 @@ public class Ruby extends GenericScoreIncreaser {
 
     // Constructors
     public Ruby() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Ruby";
+	return "Ruby";
     }
 
     @Override
     public String getPluralName() {
-        return "Rubys";
+	return "Rubys";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(Ruby.SCORE_INCREASE);
+	WidgetWarren.getApplication().getGameManager().addToScore(Ruby.SCORE_INCREASE);
     }
 
     @Override
     public String getDescription() {
-        return "Rubys increase your score when picked up.";
+	return "Rubys increase your score when picked up.";
     }
 }

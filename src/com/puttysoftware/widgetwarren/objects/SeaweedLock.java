@@ -14,32 +14,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class SeaweedLock extends GenericSingleLock {
     // Constructors
     public SeaweedLock() {
-        super(new SeaweedKey());
+	super(new SeaweedKey());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need a seaweed key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need a seaweed key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Seaweed Lock";
+	return "Seaweed Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Locks";
+	return "Seaweed Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Locks require Seaweed Keys to open.";
+	return "Seaweed Locks require Seaweed Keys to open.";
     }
 }

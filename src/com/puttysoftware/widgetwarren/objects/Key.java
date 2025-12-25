@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericSingleKey;
 public class Key extends GenericSingleKey {
     // Constructors
     public Key() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Key";
+	return "Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Keys";
+	return "Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Keys unlock Locks, and can only be used once.";
+	return "Keys unlock Locks, and can only be used once.";
     }
 }

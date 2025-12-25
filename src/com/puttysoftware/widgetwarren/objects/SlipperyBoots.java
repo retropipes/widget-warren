@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericBoots;
 public class SlipperyBoots extends GenericBoots {
     // Constructors
     public SlipperyBoots() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Slippery Boots";
+	return "Slippery Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Slippery Boots";
+	return "Pairs of Slippery Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Slippery Boots make all ground frictionless as you walk. Note that you can only wear one pair of boots at once.";
+	return "Slippery Boots make all ground frictionless as you walk. Note that you can only wear one pair of boots at once.";
     }
 }

@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericPort;
 public class RPort extends GenericPort {
     // Constructors
     public RPort() {
-        super(new RPlug(), 'R');
+	super(new RPlug(), 'R');
     }
 }

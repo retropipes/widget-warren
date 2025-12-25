@@ -11,13 +11,12 @@ import com.puttysoftware.widgetwarren.objects.FireAmulet;
 public class Fiery extends MazeEffect {
     // Constructor
     public Fiery(final int newRounds) {
-        super("Fiery", newRounds);
+	super("Fiery", newRounds);
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        WidgetWarren.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new FireAmulet());
+	// Remove item that granted effect from inventory
+	WidgetWarren.getApplication().getGameManager().getObjectInventory().removeItem(new FireAmulet());
     }
 }

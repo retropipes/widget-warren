@@ -18,52 +18,47 @@ public class FireBomb extends GenericUsableObject {
 
     // Constructors
     public FireBomb() {
-        super(1);
+	super(1);
     }
 
     @Override
     public String getName() {
-        return "Fire Bomb";
+	return "Fire Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Fire Bombs";
+	return "Fire Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Fire Bombs burn anything in an area of radius 2 centered on the target point.";
+	return "Fire Bombs burn anything in an area of radius 2 centered on the target point.";
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final ObjectInventory inv) {
-        // Act as if bomb was used
-        this.useAction(null, locX, locY, locZ);
-        // Destroy bomb
-        WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX,
-                locY, locZ);
-        // Stop arrow
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final ObjectInventory inv) {
+	// Act as if bomb was used
+	this.useAction(null, locX, locY, locZ);
+	// Destroy bomb
+	WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ);
+	// Stop arrow
+	return false;
     }
 
     @Override
-    public void useAction(final MazeObject mo, final int x, final int y,
-            final int z) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_EXPLODE);
-        // Enrage objects that react to fire
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .radialScanEnrageObjects(x, y, z, FireBomb.EFFECT_RADIUS);
-        // Burn the ground, too
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .radialScanBurnGround(x, y, z, FireBomb.EFFECT_RADIUS);
+    public void useAction(final MazeObject mo, final int x, final int y, final int z) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_EXPLODE);
+	// Enrage objects that react to fire
+	WidgetWarren.getApplication().getMazeManager().getMaze().radialScanEnrageObjects(x, y, z,
+		FireBomb.EFFECT_RADIUS);
+	// Burn the ground, too
+	WidgetWarren.getApplication().getMazeManager().getMaze().radialScanBurnGround(x, y, z, FireBomb.EFFECT_RADIUS);
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(null, x, y, z);
+	this.useAction(null, x, y, z);
     }
 }

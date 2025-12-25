@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericGround;
 public class HotRock extends GenericGround {
     // Constructors
     public HotRock() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Hot Rock";
+	return "Hot Rock";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Hot Rock";
+	return "Squares of Hot Rock";
     }
 
     @Override
     public String getDescription() {
-        return "Hot Rock is one of the many types of ground. It is created by Fire Amulets and Hot Boots, but can also exist on its own.";
+	return "Hot Rock is one of the many types of ground. It is created by Fire Amulets and Hot Boots, but can also exist on its own.";
     }
 }

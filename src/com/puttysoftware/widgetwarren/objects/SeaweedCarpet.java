@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericCarpet;
 public class SeaweedCarpet extends GenericCarpet {
     // Constructors
     public SeaweedCarpet() {
-        super("Seaweed");
+	super("Seaweed");
     }
 }

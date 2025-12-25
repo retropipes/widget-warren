@@ -14,27 +14,26 @@ public class Sapphire extends GenericScoreIncreaser {
 
     // Constructors
     public Sapphire() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Sapphire";
+	return "Sapphire";
     }
 
     @Override
     public String getPluralName() {
-        return "Sapphires";
+	return "Sapphires";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(Sapphire.SCORE_INCREASE);
+	WidgetWarren.getApplication().getGameManager().addToScore(Sapphire.SCORE_INCREASE);
     }
 
     @Override
     public String getDescription() {
-        return "Sapphires increase your score when picked up.";
+	return "Sapphires increase your score when picked up.";
     }
 }

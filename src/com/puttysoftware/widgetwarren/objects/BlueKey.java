@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericSingleKey;
 public class BlueKey extends GenericSingleKey {
     // Constructors
     public BlueKey() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Blue Key";
+	return "Blue Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Blue Keys";
+	return "Blue Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Blue Keys will unlock Blue Locks, and can only be used once.";
+	return "Blue Keys will unlock Blue Locks, and can only be used once.";
     }
 }

@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericProgrammableKey;
 public class SkyCrystal extends GenericProgrammableKey {
     // Constructors
     public SkyCrystal() {
-        super("Sky");
+	super("Sky");
     }
 }

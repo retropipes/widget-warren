@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericToggleWall;
 public class WhiteWallOn extends GenericToggleWall {
     // Constructors
     public WhiteWallOn() {
-        super(true);
+	super(true);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "White Wall On";
+	return "White Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "White Walls On";
+	return "White Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "White Walls On can NOT be walked through, and will change to White Walls Off when a White Button is pressed.";
+	return "White Walls On can NOT be walked through, and will change to White Walls Off when a White Button is pressed.";
     }
 }

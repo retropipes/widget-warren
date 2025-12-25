@@ -13,21 +13,19 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 
 public abstract class GenericInvisibleTeleport extends GenericTeleport {
     // Constructors
-    protected GenericInvisibleTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor);
+    protected GenericInvisibleTeleport(final int destinationRow, final int destinationColumn,
+	    final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().updatePositionAbsolute(this.getDestinationRow(),
-                this.getDestinationColumn(), this.getDestinationFloor());
-        WidgetWarren.getApplication().showMessage("Invisible Teleport!");
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().updatePositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor());
+	WidgetWarren.getApplication().showMessage("Invisible Teleport!");
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
@@ -35,8 +33,8 @@ public abstract class GenericInvisibleTeleport extends GenericTeleport {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INVISIBLE_TELEPORT);
-        this.type.set(TypeConstants.TYPE_TELEPORT);
+	this.type.set(TypeConstants.TYPE_INVISIBLE_TELEPORT);
+	this.type.set(TypeConstants.TYPE_TELEPORT);
     }
 
     @Override

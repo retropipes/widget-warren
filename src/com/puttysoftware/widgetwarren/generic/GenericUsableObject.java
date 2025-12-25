@@ -8,7 +8,7 @@ package com.puttysoftware.widgetwarren.generic;
 public abstract class GenericUsableObject extends GenericInventoryableObject {
     // Constructors
     protected GenericUsableObject(final int newUses) {
-        super(true, newUses);
+	super(true, newUses);
     }
 
     @Override
@@ -19,9 +19,9 @@ public abstract class GenericUsableObject extends GenericInventoryableObject {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_USABLE);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_USABLE);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override

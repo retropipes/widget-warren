@@ -14,27 +14,26 @@ public class HealBoots extends GenericBoots {
 
     // Constructors
     public HealBoots() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Heal Boots";
+	return "Heal Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Heal Boots";
+	return "Pairs of Heal Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Heal Boots restore your health as you walk. Note that you can only wear one pair of boots at once.";
+	return "Heal Boots restore your health as you walk. Note that you can only wear one pair of boots at once.";
     }
 
     @Override
     public void stepAction() {
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .heal(HealBoots.HEAL_AMOUNT);
+	WidgetWarren.getApplication().getMazeManager().getMaze().heal(HealBoots.HEAL_AMOUNT);
     }
 }

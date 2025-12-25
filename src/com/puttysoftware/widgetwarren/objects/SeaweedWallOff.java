@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericToggleWall;
 public class SeaweedWallOff extends GenericToggleWall {
     // Constructors
     public SeaweedWallOff() {
-        super(false);
+	super(false);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Seaweed Wall Off";
+	return "Seaweed Wall Off";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Walls Off";
+	return "Seaweed Walls Off";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Walls Off can be walked through, and will change to Seaweed Walls On when a Seaweed Button is pressed.";
+	return "Seaweed Walls Off can be walked through, and will change to Seaweed Walls On when a Seaweed Button is pressed.";
     }
 }

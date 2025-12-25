@@ -14,36 +14,35 @@ public abstract class GenericLightModifier extends MazeObject {
 
     // Constructors
     protected GenericLightModifier() {
-        super(true);
+	super(true);
     }
 
     public int getEffectRadius() {
-        return this.EFFECT_RADIUS;
+	return this.EFFECT_RADIUS;
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_LIGHT_MODIFIER);
+	this.type.set(TypeConstants.TYPE_LIGHT_MODIFIER);
     }
 
     @Override
     public int getLayer() {
-        return MazeConstants.LAYER_OBJECT;
+	return MazeConstants.LAYER_OBJECT;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return MazeObject.DEFAULT_CUSTOM_VALUE;
+	return MazeObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

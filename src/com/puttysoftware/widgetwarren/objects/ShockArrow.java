@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericTransientObject;
 public class ShockArrow extends GenericTransientObject {
     // Constructors
     public ShockArrow() {
-        super("Shock Arrow");
+	super("Shock Arrow");
     }
 }

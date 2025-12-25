@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericBarrier;
 public class HorizontalBarrier extends GenericBarrier {
     // Constructors
     public HorizontalBarrier() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Horizontal Barrier";
+	return "Horizontal Barrier";
     }
 
     @Override
     public String getPluralName() {
-        return "Horizontal Barriers";
+	return "Horizontal Barriers";
     }
 
     @Override
     public String getDescription() {
-        return "Horizontal Barriers are impassable - you'll need to go around them.";
+	return "Horizontal Barriers are impassable - you'll need to go around them.";
     }
 }

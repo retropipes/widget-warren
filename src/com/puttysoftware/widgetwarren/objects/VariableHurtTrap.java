@@ -21,38 +21,33 @@ public class VariableHurtTrap extends GenericTrap {
 
     // Constructors
     public VariableHurtTrap() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Variable Hurt Trap";
+	return "Variable Hurt Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Variable Hurt Traps";
+	return "Variable Hurt Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        this.maxDamage = WidgetWarren.getApplication().getMazeManager()
-                .getMaze().getMaximumHP() / 10;
-        if (this.maxDamage < VariableHurtTrap.MIN_DAMAGE) {
-            this.maxDamage = VariableHurtTrap.MIN_DAMAGE;
-        }
-        this.damageDealt = new RandomRange(VariableHurtTrap.MIN_DAMAGE,
-                this.maxDamage);
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .doDamage(this.damageDealt.generate());
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_BARRIER);
-        WidgetWarren.getApplication().getGameManager().decay();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	this.maxDamage = WidgetWarren.getApplication().getMazeManager().getMaze().getMaximumHP() / 10;
+	if (this.maxDamage < VariableHurtTrap.MIN_DAMAGE) {
+	    this.maxDamage = VariableHurtTrap.MIN_DAMAGE;
+	}
+	this.damageDealt = new RandomRange(VariableHurtTrap.MIN_DAMAGE, this.maxDamage);
+	WidgetWarren.getApplication().getMazeManager().getMaze().doDamage(this.damageDealt.generate());
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_BARRIER);
+	WidgetWarren.getApplication().getGameManager().decay();
     }
 
     @Override
     public String getDescription() {
-        return "Variable Hurt Traps hurt you when stepped on, then disappear.";
+	return "Variable Hurt Traps hurt you when stepped on, then disappear.";
     }
 }

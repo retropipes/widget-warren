@@ -19,52 +19,47 @@ public class WarpBomb extends GenericUsableObject {
 
     // Constructors
     public WarpBomb() {
-        super(1);
+	super(1);
     }
 
     @Override
     public String getName() {
-        return "Warp Bomb";
+	return "Warp Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Warp Bombs";
+	return "Warp Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Warp Bombs randomly teleport anything in an area of radius 3 centered on the target point.";
+	return "Warp Bombs randomly teleport anything in an area of radius 3 centered on the target point.";
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final ObjectInventory inv) {
-        // Destroy bomb
-        WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX,
-                locY, locZ);
-        // Act as if bomb was used
-        this.useAction(null, locX, locY, locZ);
-        // Stop arrow
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final ObjectInventory inv) {
+	// Destroy bomb
+	WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ);
+	// Act as if bomb was used
+	this.useAction(null, locX, locY, locZ);
+	// Stop arrow
+	return false;
     }
 
     @Override
-    public void useAction(final MazeObject mo, final int x, final int y,
-            final int z) {
-        // Warp objects
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_EXPLODE);
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .radialScanWarpObjects(x, y, z, MazeConstants.LAYER_OBJECT,
-                        WarpBomb.EFFECT_RADIUS);
-        // Player might have moved
-        WidgetWarren.getApplication().getGameManager().findPlayerAndAdjust();
+    public void useAction(final MazeObject mo, final int x, final int y, final int z) {
+	// Warp objects
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_EXPLODE);
+	WidgetWarren.getApplication().getMazeManager().getMaze().radialScanWarpObjects(x, y, z,
+		MazeConstants.LAYER_OBJECT, WarpBomb.EFFECT_RADIUS);
+	// Player might have moved
+	WidgetWarren.getApplication().getGameManager().findPlayerAndAdjust();
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(null, x, y, z);
+	this.useAction(null, x, y, z);
     }
 }

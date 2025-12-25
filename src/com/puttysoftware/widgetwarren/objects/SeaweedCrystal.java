@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericProgrammableKey;
 public class SeaweedCrystal extends GenericProgrammableKey {
     // Constructors
     public SeaweedCrystal() {
-        super("Seaweed");
+	super("Seaweed");
     }
 }

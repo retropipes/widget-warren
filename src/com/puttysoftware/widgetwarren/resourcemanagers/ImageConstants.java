@@ -11,14 +11,14 @@ public class ImageConstants {
     private static final int IMAGE_SIZE = 48;
 
     private ImageConstants() {
-        // Do nothing
+	// Do nothing
     }
 
     public static int getImageSize() {
-        return ImageConstants.IMAGE_SIZE;
+	return ImageConstants.IMAGE_SIZE;
     }
 
     public static int getScaledImageSize() {
-        return BufferedImageIcon.getScaledValue(ImageConstants.IMAGE_SIZE);
+	return BufferedImageIcon.getScaledValue(ImageConstants.IMAGE_SIZE);
     }
 }

@@ -14,34 +14,32 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class FakeFinish extends GenericPassThroughObject {
     // Constructors
     public FakeFinish() {
-        super();
+	super();
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
-        WidgetWarren.getApplication().showMessage("Fake exit!");
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
+	WidgetWarren.getApplication().showMessage("Fake exit!");
     }
 
     @Override
     public String getName() {
-        return "Fake Finish";
+	return "Fake Finish";
     }
 
     @Override
     public String getGameName() {
-        return "Finish";
+	return "Finish";
     }
 
     @Override
     public String getPluralName() {
-        return "Fake Finishes";
+	return "Fake Finishes";
     }
 
     @Override
     public String getDescription() {
-        return "Fake Finishes look like regular finishes but don't lead anywhere.";
+	return "Fake Finishes look like regular finishes but don't lead anywhere.";
     }
 }

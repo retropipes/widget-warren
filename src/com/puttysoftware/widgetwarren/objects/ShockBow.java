@@ -14,21 +14,21 @@ public class ShockBow extends GenericBow {
 
     // Constructors
     public ShockBow() {
-        super(ShockBow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_SHOCK);
+	super(ShockBow.BOW_USES, ArrowTypeConstants.ARROW_TYPE_SHOCK);
     }
 
     @Override
     public String getName() {
-        return "Shock Bow";
+	return "Shock Bow";
     }
 
     @Override
     public String getPluralName() {
-        return "Shock Bows";
+	return "Shock Bows";
     }
 
     @Override
     public String getDescription() {
-        return "Shock Bows allow shooting of Shock Arrows, which energize Barrier Generators upon contact, and do everything normal arrows do.";
+	return "Shock Bows allow shooting of Shock Arrows, which energize Barrier Generators upon contact, and do everything normal arrows do.";
     }
 }

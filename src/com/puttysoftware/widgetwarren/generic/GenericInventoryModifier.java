@@ -11,30 +11,29 @@ import com.puttysoftware.widgetwarren.maze.MazeConstants;
 public abstract class GenericInventoryModifier extends MazeObject {
     // Constructors
     protected GenericInventoryModifier() {
-        super(false);
+	super(false);
     }
 
     @Override
-    public abstract void postMoveAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv);
+    public abstract void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv);
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INVENTORY_MODIFIER);
+	this.type.set(TypeConstants.TYPE_INVENTORY_MODIFIER);
     }
 
     @Override
     public int getLayer() {
-        return MazeConstants.LAYER_OBJECT;
+	return MazeConstants.LAYER_OBJECT;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return MazeObject.DEFAULT_CUSTOM_VALUE;
+	return MazeObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

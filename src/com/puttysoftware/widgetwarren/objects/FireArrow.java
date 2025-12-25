@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericTransientObject;
 public class FireArrow extends GenericTransientObject {
     // Constructors
     public FireArrow() {
-        super("Fire Arrow");
+	super("Fire Arrow");
     }
 }

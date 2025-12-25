@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMultipleLock;
 public class GoldenWall extends GenericMultipleLock {
     // Constructors
     public GoldenWall() {
-        super(new GoldenSquare());
+	super(new GoldenSquare());
     }
 
     @Override
     public String getName() {
-        return "Golden Wall";
+	return "Golden Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Golden Walls";
+	return "Golden Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Golden Walls are impassable without enough Golden Squares.";
+	return "Golden Walls are impassable without enough Golden Squares.";
     }
 }

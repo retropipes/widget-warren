@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericTransientObject;
 public class Arrow extends GenericTransientObject {
     // Constructors
     public Arrow() {
-        super("Arrow");
+	super("Arrow");
     }
 }

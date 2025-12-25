@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericTransientObject;
 public class IceArrow extends GenericTransientObject {
     // Constructors
     public IceArrow() {
-        super("Ice Arrow");
+	super("Ice Arrow");
     }
 }

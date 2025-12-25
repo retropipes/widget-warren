@@ -14,41 +14,37 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class Lava extends GenericField {
     // Constructors
     public Lava() {
-        super(new FireBoots());
+	super(new FireBoots());
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_ON_LAVA);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_ON_LAVA);
     }
 
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        WidgetWarren.getApplication().showMessage("You'll burn");
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_LAVA);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	WidgetWarren.getApplication().showMessage("You'll burn");
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_LAVA);
     }
 
     @Override
     public String getName() {
-        return "Lava";
+	return "Lava";
     }
 
     @Override
     public String getPluralName() {
-        return "Squares of Lava";
+	return "Squares of Lava";
     }
 
     @Override
     public boolean overridesDefaultPostMove() {
-        return true;
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Lava is too hot to walk on without Fire Boots.";
+	return "Lava is too hot to walk on without Fire Boots.";
     }
 }

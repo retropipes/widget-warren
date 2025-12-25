@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericBoots;
 public class PasswallBoots extends GenericBoots {
     // Constructors
     public PasswallBoots() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Passwall Boots";
+	return "Passwall Boots";
     }
 
     @Override
     public String getPluralName() {
-        return "Pairs of Passwall Boots";
+	return "Pairs of Passwall Boots";
     }
 
     @Override
     public String getDescription() {
-        return "Passwall Boots allow you to pass through most walls as you walk. Note that you can only wear one pair of boots at once.";
+	return "Passwall Boots allow you to pass through most walls as you walk. Note that you can only wear one pair of boots at once.";
     }
 }

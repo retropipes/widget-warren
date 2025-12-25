@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMovableObject;
 public class PushablePullableBlock extends GenericMovableObject {
     // Constructors
     public PushablePullableBlock() {
-        super(true, true);
+	super(true, true);
     }
 
     @Override
     public String getName() {
-        return "Pushable/Pullable Block";
+	return "Pushable/Pullable Block";
     }
 
     @Override
     public String getPluralName() {
-        return "Pushable/Pullable Blocks";
+	return "Pushable/Pullable Blocks";
     }
 
     @Override
     public String getDescription() {
-        return "Pushable/Pullable Blocks can be both pushed and pulled.";
+	return "Pushable/Pullable Blocks can be both pushed and pulled.";
     }
 }

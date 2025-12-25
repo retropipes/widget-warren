@@ -14,63 +14,58 @@ import com.puttysoftware.widgetwarren.generic.MazeObjectList;
 public class MovingBlock extends GenericMovingObject implements Cloneable {
     // Constructors
     public MovingBlock() {
-        super(true);
-        this.setSavedObject(new Empty());
-        final RandomRange t = new RandomRange(1, 2);
-        this.activateTimer(t.generate());
+	super(true);
+	this.setSavedObject(new Empty());
+	final RandomRange t = new RandomRange(1, 2);
+	this.activateTimer(t.generate());
     }
 
     @Override
     public MovingBlock clone() {
-        final MovingBlock copy = (MovingBlock) super.clone();
-        copy.setSavedObject(this.getSavedObject().clone());
-        return copy;
+	final MovingBlock copy = (MovingBlock) super.clone();
+	copy.setSavedObject(this.getSavedObject().clone());
+	return copy;
     }
 
     @Override
     public void timerExpiredAction(final int dirX, final int dirY) {
-        // Move the block
-        final RandomRange r = new RandomRange(0, 7);
-        final int move = r.generate();
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .updateMovingBlockPosition(move, dirX, dirY, this);
-        final RandomRange t = new RandomRange(1, 2);
-        this.activateTimer(t.generate());
+	// Move the block
+	final RandomRange r = new RandomRange(0, 7);
+	final int move = r.generate();
+	WidgetWarren.getApplication().getMazeManager().getMaze().updateMovingBlockPosition(move, dirX, dirY, this);
+	final RandomRange t = new RandomRange(1, 2);
+	this.activateTimer(t.generate());
     }
 
     @Override
     public String getName() {
-        return "Moving Block";
+	return "Moving Block";
     }
 
     @Override
     public String getPluralName() {
-        return "Moving Blocks";
+	return "Moving Blocks";
     }
 
     @Override
     public String getDescription() {
-        return "Moving Blocks move on their own. They cannot be pushed or pulled.";
+	return "Moving Blocks move on their own. They cannot be pushed or pulled.";
     }
 
     @Override
     public int getCustomFormat() {
-        return MazeObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
+	return MazeObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
     }
 
     @Override
-    protected void writeMazeObjectHookXML(final XDataWriter writer)
-            throws IOException {
-        this.getSavedObject().writeMazeObjectXML(writer);
+    protected void writeMazeObjectHookXML(final XDataWriter writer) throws IOException {
+	this.getSavedObject().writeMazeObjectXML(writer);
     }
 
     @Override
-    protected MazeObject readMazeObjectHookXML(final XDataReader reader,
-            final int formatVersion) throws IOException {
-        final MazeObjectList objectList = WidgetWarren.getApplication()
-                .getObjects();
-        this.setSavedObject(
-                objectList.readMazeObjectXML(reader, formatVersion));
-        return this;
+    protected MazeObject readMazeObjectHookXML(final XDataReader reader, final int formatVersion) throws IOException {
+	final MazeObjectList objectList = WidgetWarren.getApplication().getObjects();
+	this.setSavedObject(objectList.readMazeObjectXML(reader, formatVersion));
+	return this;
     }
 }

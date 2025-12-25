@@ -16,25 +16,25 @@ public class SoundManager {
     private static Class<?> LOAD_CLASS = SoundManager.class;
 
     private static WAVFactory getSound(final String filename) {
-        try {
-            final URL url = SoundManager.LOAD_CLASS.getResource(
-                    SoundManager.LOAD_PATH + filename.toLowerCase() + ".wav");
-            final WAVFactory snd = WAVFactory.getNonLoopingResource(url);
-            return snd;
-        } catch (final NullPointerException np) {
-            return null;
-        }
+	try {
+	    final URL url = SoundManager.LOAD_CLASS
+		    .getResource(SoundManager.LOAD_PATH + filename.toLowerCase() + ".wav");
+	    final WAVFactory snd = WAVFactory.getNonLoopingResource(url);
+	    return snd;
+	} catch (final NullPointerException np) {
+	    return null;
+	}
     }
 
     public static void playSound(final int soundCat, final int soundID) {
-        if (PreferencesManager.getSoundEnabled(soundCat + 1)) {
-            try {
-                final String soundName = SoundConstants.NAMES[soundID];
-                final WAVFactory snd = SoundManager.getSound(soundName);
-                snd.start();
-            } catch (final ArrayIndexOutOfBoundsException aioob) {
-                // Do nothing
-            }
-        }
+	if (PreferencesManager.getSoundEnabled(soundCat + 1)) {
+	    try {
+		final String soundName = SoundConstants.NAMES[soundID];
+		final WAVFactory snd = SoundManager.getSound(soundName);
+		snd.start();
+	    } catch (final ArrayIndexOutOfBoundsException aioob) {
+		// Do nothing
+	    }
+	}
     }
 }

@@ -14,32 +14,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class GreenLock extends GenericSingleLock {
     // Constructors
     public GreenLock() {
-        super(new GreenKey());
+	super(new GreenKey());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need a green key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need a green key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Green Lock";
+	return "Green Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Green Locks";
+	return "Green Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Green Locks require Green Keys to open.";
+	return "Green Locks require Green Keys to open.";
     }
 }

@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMultipleLock;
 public class GarnetWall extends GenericMultipleLock {
     // Constructors
     public GarnetWall() {
-        super(new GarnetSquare());
+	super(new GarnetSquare());
     }
 
     @Override
     public String getName() {
-        return "Garnet Wall";
+	return "Garnet Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Garnet Walls";
+	return "Garnet Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Garnet Walls are impassable without enough Garnet Squares.";
+	return "Garnet Walls are impassable without enough Garnet Squares.";
     }
 }

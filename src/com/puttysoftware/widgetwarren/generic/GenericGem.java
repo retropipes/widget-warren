@@ -19,52 +19,46 @@ public abstract class GenericGem extends MazeObject {
 
     // Constructors
     protected GenericGem() {
-        super(false);
+	super(false);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        WidgetWarren.getApplication().getGameManager().decay();
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(GenericGem.SCORE_GRAB);
-        this.postMoveActionHook();
-        WidgetWarren.getApplication().getGameManager().redrawMaze();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	WidgetWarren.getApplication().getGameManager().decay();
+	WidgetWarren.getApplication().getGameManager().addToScore(GenericGem.SCORE_GRAB);
+	this.postMoveActionHook();
+	WidgetWarren.getApplication().getGameManager().redrawMaze();
     }
 
     public abstract void postMoveActionHook();
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_GEM);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_GEM);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override
     public int getLayer() {
-        return MazeConstants.LAYER_OBJECT;
+	return MazeConstants.LAYER_OBJECT;
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final ObjectInventory inv) {
-        WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX,
-                locY, locZ);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_SHATTER);
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(GenericGem.SCORE_SMASH);
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final ObjectInventory inv) {
+	WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_SHATTER);
+	WidgetWarren.getApplication().getGameManager().addToScore(GenericGem.SCORE_SMASH);
+	return false;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return MazeObject.DEFAULT_CUSTOM_VALUE;
+	return MazeObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

@@ -11,23 +11,19 @@ import com.puttysoftware.widgetwarren.maze.MazeConstants;
 public abstract class GenericGround extends MazeObject {
     // Constructors
     protected GenericGround() {
-        super(false);
+	super(false);
     }
 
-    protected GenericGround(final boolean doesAcceptPushInto,
-            final boolean doesAcceptPushOut, final boolean doesAcceptPullInto,
-            final boolean doesAcceptPullOut) {
-        super(false, false, doesAcceptPushInto, doesAcceptPushOut, false,
-                doesAcceptPullInto, doesAcceptPullOut, true, false, 0, false,
-                false);
+    protected GenericGround(final boolean doesAcceptPushInto, final boolean doesAcceptPushOut,
+	    final boolean doesAcceptPullInto, final boolean doesAcceptPullOut) {
+	super(false, false, doesAcceptPushInto, doesAcceptPushOut, false, doesAcceptPullInto, doesAcceptPullOut, true,
+		false, 0, false, false);
     }
 
-    protected GenericGround(final boolean doesAcceptPushInto,
-            final boolean doesAcceptPushOut, final boolean doesAcceptPullInto,
-            final boolean doesAcceptPullOut, final boolean hasFriction) {
-        super(false, false, doesAcceptPushInto, doesAcceptPushOut, false,
-                doesAcceptPullInto, doesAcceptPullOut, hasFriction, false, 0,
-                false, false);
+    protected GenericGround(final boolean doesAcceptPushInto, final boolean doesAcceptPushOut,
+	    final boolean doesAcceptPullInto, final boolean doesAcceptPullOut, final boolean hasFriction) {
+	super(false, false, doesAcceptPushInto, doesAcceptPushOut, false, doesAcceptPullInto, doesAcceptPullOut,
+		hasFriction, false, 0, false, false);
     }
 
     @Override
@@ -35,27 +31,26 @@ public abstract class GenericGround extends MazeObject {
 
     @Override
     public int getLayer() {
-        return MazeConstants.LAYER_GROUND;
+	return MazeConstants.LAYER_GROUND;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_GROUND);
+	this.type.set(TypeConstants.TYPE_GROUND);
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return MazeObject.DEFAULT_CUSTOM_VALUE;
+	return MazeObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	// Do nothing
     }
 }

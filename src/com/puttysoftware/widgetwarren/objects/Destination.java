@@ -11,26 +11,26 @@ import com.puttysoftware.widgetwarren.generic.MazeObject;
 public class Destination extends GenericTeleport {
     // Constructors
     public Destination() {
-        super(0, 0, 0);
+	super(0, 0, 0);
     }
 
     @Override
     public String getName() {
-        return "Destination";
+	return "Destination";
     }
 
     @Override
     public String getPluralName() {
-        return "Destinations";
+	return "Destinations";
     }
 
     @Override
     public MazeObject editorPropertiesHook() {
-        return null;
+	return null;
     }
 
     @Override
     public String getDescription() {
-        return "Destinations are where Teleports take you to.";
+	return "Destinations are where Teleports take you to.";
     }
 }

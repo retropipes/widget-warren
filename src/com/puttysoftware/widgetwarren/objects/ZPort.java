@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericPort;
 public class ZPort extends GenericPort {
     // Constructors
     public ZPort() {
-        super(new ZPlug(), 'Z');
+	super(new ZPlug(), 'Z');
     }
 }

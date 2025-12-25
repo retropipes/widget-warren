@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericProgrammableLock;
 public class CrystalWall extends GenericProgrammableLock {
     // Constructors
     public CrystalWall() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Crystal Wall";
+	return "Crystal Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Crystal Walls";
+	return "Crystal Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Crystal Walls require one Crystal to open. The crystal type required may be different from wall to wall.";
+	return "Crystal Walls require one Crystal to open. The crystal type required may be different from wall to wall.";
     }
 }

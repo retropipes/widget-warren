@@ -13,49 +13,49 @@ import com.puttysoftware.widgetwarren.maze.Maze;
 public class Player extends GenericCharacter {
     // Constructors
     public Player() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Player";
+	return "Player";
     }
 
     @Override
     public String getPluralName() {
-        return "Players";
+	return "Players";
     }
 
     @Override
     public void editorPlaceHook() {
-        final MazeEditor me = WidgetWarren.getApplication().getEditor();
-        me.setPlayerLocation();
+	final MazeEditor me = WidgetWarren.getApplication().getEditor();
+	me.setPlayerLocation();
     }
 
     @Override
     public void editorGenerateHook(final int x, final int y, final int z) {
-        final MazeEditor me = WidgetWarren.getApplication().getEditor();
-        me.setPlayerLocation(x, y, z);
+	final MazeEditor me = WidgetWarren.getApplication().getEditor();
+	me.setPlayerLocation(x, y, z);
     }
 
     @Override
     public String getDescription() {
-        return "This is you - the Player.";
+	return "This is you - the Player.";
     }
 
     // Random Generation Rules
     @Override
     public boolean isRequired() {
-        return true;
+	return true;
     }
 
     @Override
     public int getMinimumRequiredQuantity(final Maze maze) {
-        return 1;
+	return 1;
     }
 
     @Override
     public int getMaximumRequiredQuantity(final Maze maze) {
-        return 1;
+	return 1;
     }
 }

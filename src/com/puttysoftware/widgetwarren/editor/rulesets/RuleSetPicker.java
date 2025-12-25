@@ -44,157 +44,153 @@ public class RuleSetPicker {
     private final RuleSetEditor rsEditor;
 
     public RuleSetPicker() {
-        this.handler = new EventHandler();
-        this.objectList = WidgetWarren.getApplication().getObjects();
-        this.names = this.objectList.getAllNames();
-        this.objects = this.objectList.getAllObjects();
-        this.editorAppearances = this.objectList.getAllEditorAppearances();
-        this.rsEditor = new RuleSetEditor();
-        this.setUpGUI();
+	this.handler = new EventHandler();
+	this.objectList = WidgetWarren.getApplication().getObjects();
+	this.names = this.objectList.getAllNames();
+	this.objects = this.objectList.getAllObjects();
+	this.editorAppearances = this.objectList.getAllEditorAppearances();
+	this.rsEditor = new RuleSetEditor();
+	this.setUpGUI();
     }
 
     void createObjectRuleSet() {
-        this.index = this.picker.getPicked();
-        final MazeObject object = this.objects[this.index];
-        object.giveRuleSet();
-        CommonDialogs.showTitledDialog("Rule Set Created.", "Rule Set Picker");
+	this.index = this.picker.getPicked();
+	final MazeObject object = this.objects[this.index];
+	object.giveRuleSet();
+	CommonDialogs.showTitledDialog("Rule Set Created.", "Rule Set Picker");
     }
 
     void destroyObjectRuleSet() {
-        this.index = this.picker.getPicked();
-        final MazeObject object = this.objects[this.index];
-        object.takeRuleSet();
-        CommonDialogs.showTitledDialog("Rule Set Destroyed.",
-                "Rule Set Picker");
+	this.index = this.picker.getPicked();
+	final MazeObject object = this.objects[this.index];
+	object.takeRuleSet();
+	CommonDialogs.showTitledDialog("Rule Set Destroyed.", "Rule Set Picker");
     }
 
     void editObjectRuleSet() {
-        this.index = this.picker.getPicked();
-        final MazeObject object = this.objects[this.index];
-        if (object.hasRuleSet()) {
-            this.rsEditor.setRuleSet(object.getRuleSet());
-            this.rsEditor.showRuleSetEditor();
-        } else {
-            CommonDialogs.showTitledDialog(
-                    "This object does not have a rule set to edit!",
-                    "Rule Set Picker");
-        }
+	this.index = this.picker.getPicked();
+	final MazeObject object = this.objects[this.index];
+	if (object.hasRuleSet()) {
+	    this.rsEditor.setRuleSet(object.getRuleSet());
+	    this.rsEditor.showRuleSetEditor();
+	} else {
+	    CommonDialogs.showTitledDialog("This object does not have a rule set to edit!", "Rule Set Picker");
+	}
     }
 
     public void editRuleSets() {
-        final Application app = WidgetWarren.getApplication();
-        app.getEditor().hideOutput();
-        this.showOutput();
+	final Application app = WidgetWarren.getApplication();
+	app.getEditor().hideOutput();
+	this.showOutput();
     }
 
     public void showOutput() {
-        this.outputFrame.setVisible(true);
+	this.outputFrame.setVisible(true);
     }
 
     public void hideOutput() {
-        if (this.outputFrame != null) {
-            this.outputFrame.setVisible(false);
-        }
+	if (this.outputFrame != null) {
+	    this.outputFrame.setVisible(false);
+	}
     }
 
     void exitRuleSetEditor() {
-        final Application app = WidgetWarren.getApplication();
-        this.hideOutput();
-        app.getEditor().showOutput();
+	final Application app = WidgetWarren.getApplication();
+	this.hideOutput();
+	app.getEditor().showOutput();
     }
 
     private void setUpGUI() {
-        this.outputFrame = new JFrame("Rule Set Picker");
-        final Image iconlogo = LogoManager.getLogo();
-        this.outputFrame.setIconImage(iconlogo);
-        this.outputPane = new Container();
-        this.borderPane = new Container();
-        this.create = new JButton("Create");
-        this.destroy = new JButton("Destroy");
-        this.edit = new JButton("Edit");
-        this.importXML = new JButton("Load");
-        this.exportXML = new JButton("Save");
-        this.borderPane.setLayout(new BorderLayout());
-        this.outputFrame.setContentPane(this.borderPane);
-        this.outputFrame
-                .setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        this.borderPane.add(this.outputPane, BorderLayout.SOUTH);
-        this.outputPane.setLayout(new FlowLayout());
-        this.outputPane.add(this.create);
-        this.outputPane.add(this.destroy);
-        this.outputPane.add(this.edit);
-        this.outputPane.add(this.importXML);
-        this.outputPane.add(this.exportXML);
-        this.outputFrame.addWindowListener(this.handler);
-        this.create.addActionListener(this.handler);
-        this.destroy.addActionListener(this.handler);
-        this.edit.addActionListener(this.handler);
-        this.importXML.addActionListener(this.handler);
-        this.exportXML.addActionListener(this.handler);
-        this.picker = new PicturePicker(this.editorAppearances, this.names);
-        this.picker.updatePickerLayout(GUIConstants.MAX_WINDOW_SIZE);
-        this.borderPane.add(this.picker.getPicker(), BorderLayout.CENTER);
-        this.outputFrame.setResizable(false);
-        this.outputFrame.pack();
+	this.outputFrame = new JFrame("Rule Set Picker");
+	final Image iconlogo = LogoManager.getLogo();
+	this.outputFrame.setIconImage(iconlogo);
+	this.outputPane = new Container();
+	this.borderPane = new Container();
+	this.create = new JButton("Create");
+	this.destroy = new JButton("Destroy");
+	this.edit = new JButton("Edit");
+	this.importXML = new JButton("Load");
+	this.exportXML = new JButton("Save");
+	this.borderPane.setLayout(new BorderLayout());
+	this.outputFrame.setContentPane(this.borderPane);
+	this.outputFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	this.borderPane.add(this.outputPane, BorderLayout.SOUTH);
+	this.outputPane.setLayout(new FlowLayout());
+	this.outputPane.add(this.create);
+	this.outputPane.add(this.destroy);
+	this.outputPane.add(this.edit);
+	this.outputPane.add(this.importXML);
+	this.outputPane.add(this.exportXML);
+	this.outputFrame.addWindowListener(this.handler);
+	this.create.addActionListener(this.handler);
+	this.destroy.addActionListener(this.handler);
+	this.edit.addActionListener(this.handler);
+	this.importXML.addActionListener(this.handler);
+	this.exportXML.addActionListener(this.handler);
+	this.picker = new PicturePicker(this.editorAppearances, this.names);
+	this.picker.updatePickerLayout(GUIConstants.MAX_WINDOW_SIZE);
+	this.borderPane.add(this.picker.getPicker(), BorderLayout.CENTER);
+	this.outputFrame.setResizable(false);
+	this.outputFrame.pack();
     }
 
     private class EventHandler implements ActionListener, WindowListener {
-        public EventHandler() {
-            // Do nothing
-        }
+	public EventHandler() {
+	    // Do nothing
+	}
 
-        // handle buttons
-        @Override
-        public void actionPerformed(final ActionEvent e) {
-            final String cmd = e.getActionCommand();
-            final RuleSetPicker ge = RuleSetPicker.this;
-            if (cmd.equals("Create")) {
-                ge.createObjectRuleSet();
-            } else if (cmd.equals("Destroy")) {
-                ge.destroyObjectRuleSet();
-            } else if (cmd.equals("Edit")) {
-                ge.editObjectRuleSet();
-            } else if (cmd.equals("Load")) {
-                RuleSetManager.importRuleSet();
-            } else if (cmd.equals("Save")) {
-                RuleSetManager.exportRuleSet();
-            }
-        }
+	// handle buttons
+	@Override
+	public void actionPerformed(final ActionEvent e) {
+	    final String cmd = e.getActionCommand();
+	    final RuleSetPicker ge = RuleSetPicker.this;
+	    if (cmd.equals("Create")) {
+		ge.createObjectRuleSet();
+	    } else if (cmd.equals("Destroy")) {
+		ge.destroyObjectRuleSet();
+	    } else if (cmd.equals("Edit")) {
+		ge.editObjectRuleSet();
+	    } else if (cmd.equals("Load")) {
+		RuleSetManager.importRuleSet();
+	    } else if (cmd.equals("Save")) {
+		RuleSetManager.exportRuleSet();
+	    }
+	}
 
-        // Handle windows
-        @Override
-        public void windowActivated(final WindowEvent we) {
-            // Do nothing
-        }
+	// Handle windows
+	@Override
+	public void windowActivated(final WindowEvent we) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowClosed(final WindowEvent we) {
-            // Do nothing
-        }
+	@Override
+	public void windowClosed(final WindowEvent we) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowClosing(final WindowEvent we) {
-            RuleSetPicker.this.exitRuleSetEditor();
-        }
+	@Override
+	public void windowClosing(final WindowEvent we) {
+	    RuleSetPicker.this.exitRuleSetEditor();
+	}
 
-        @Override
-        public void windowDeactivated(final WindowEvent we) {
-            // Do nothing
-        }
+	@Override
+	public void windowDeactivated(final WindowEvent we) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowDeiconified(final WindowEvent we) {
-            // Do nothing
-        }
+	@Override
+	public void windowDeiconified(final WindowEvent we) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowIconified(final WindowEvent we) {
-            // Do nothing
-        }
+	@Override
+	public void windowIconified(final WindowEvent we) {
+	    // Do nothing
+	}
 
-        @Override
-        public void windowOpened(final WindowEvent we) {
-            // Do nothing
-        }
+	@Override
+	public void windowOpened(final WindowEvent we) {
+	    // Do nothing
+	}
     }
 }

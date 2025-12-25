@@ -25,15 +25,14 @@ public abstract class GenericCharacter extends MazeObject {
 
     // Constructors
     protected GenericCharacter() {
-        super(false);
-        this.setSavedObject(new Empty());
+	super(false);
+	this.setSavedObject(new Empty());
     }
 
     // Methods
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        // Do nothing
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	// Do nothing
     }
 
     @Override
@@ -41,63 +40,56 @@ public abstract class GenericCharacter extends MazeObject {
 
     @Override
     public int getLayer() {
-        return MazeConstants.LAYER_OBJECT;
+	return MazeConstants.LAYER_OBJECT;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_CHARACTER);
+	this.type.set(TypeConstants.TYPE_CHARACTER);
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final ObjectInventory inv) {
-        // Shot self
-        WidgetWarren.getApplication().showMessage("Ouch, you shot yourself!");
-        if (arrowType == ArrowTypeConstants.ARROW_TYPE_PLAIN) {
-            WidgetWarren.getApplication().getMazeManager().getMaze()
-                    .doDamage(GenericCharacter.SHOT_SELF_NORMAL_DAMAGE);
-        } else {
-            WidgetWarren.getApplication().getMazeManager().getMaze()
-                    .doDamage(GenericCharacter.SHOT_SELF_SPECIAL_DAMAGE);
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_LAVA);
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final ObjectInventory inv) {
+	// Shot self
+	WidgetWarren.getApplication().showMessage("Ouch, you shot yourself!");
+	if (arrowType == ArrowTypeConstants.ARROW_TYPE_PLAIN) {
+	    WidgetWarren.getApplication().getMazeManager().getMaze().doDamage(GenericCharacter.SHOT_SELF_NORMAL_DAMAGE);
+	} else {
+	    WidgetWarren.getApplication().getMazeManager().getMaze()
+		    .doDamage(GenericCharacter.SHOT_SELF_SPECIAL_DAMAGE);
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_LAVA);
+	return false;
     }
 
     @Override
     public int getCustomFormat() {
-        if (WidgetWarren.getApplication().getMazeManager()
-                .isMazeXML2Compatible()) {
-            return 0;
-        } else {
-            return MazeObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
-        }
+	if (WidgetWarren.getApplication().getMazeManager().isMazeXML2Compatible()) {
+	    return 0;
+	} else {
+	    return MazeObject.CUSTOM_FORMAT_MANUAL_OVERRIDE;
+	}
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return MazeObject.DEFAULT_CUSTOM_VALUE;
+	return MazeObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
-    protected void writeMazeObjectHookXML(final XDataWriter writer)
-            throws IOException {
-        this.getSavedObject().writeMazeObjectXML(writer);
+    protected void writeMazeObjectHookXML(final XDataWriter writer) throws IOException {
+	this.getSavedObject().writeMazeObjectXML(writer);
     }
 
     @Override
-    protected MazeObject readMazeObjectHookXML(final XDataReader reader,
-            final int formatVersion) throws IOException {
-        this.setSavedObject(WidgetWarren.getApplication().getObjects()
-                .readMazeObjectXML(reader, formatVersion));
-        return this;
+    protected MazeObject readMazeObjectHookXML(final XDataReader reader, final int formatVersion) throws IOException {
+	this.setSavedObject(WidgetWarren.getApplication().getObjects().readMazeObjectXML(reader, formatVersion));
+	return this;
     }
 }

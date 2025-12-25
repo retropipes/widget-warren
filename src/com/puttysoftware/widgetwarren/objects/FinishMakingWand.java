@@ -11,28 +11,27 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 
 public class FinishMakingWand extends GenericWand {
     public FinishMakingWand() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Finish-Making Wand";
+	return "Finish-Making Wand";
     }
 
     @Override
     public String getPluralName() {
-        return "Finish-Making Wands";
+	return "Finish-Making Wands";
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(new Finish(), x, y, z);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_CREATE);
+	this.useAction(new Finish(), x, y, z);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_CREATE);
     }
 
     @Override
     public String getDescription() {
-        return "Finish-Making Wands will create a finish when used.";
+	return "Finish-Making Wands will create a finish when used.";
     }
 }

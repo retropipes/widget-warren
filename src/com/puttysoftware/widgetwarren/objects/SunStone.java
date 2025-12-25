@@ -18,33 +18,30 @@ public class SunStone extends GenericInventoryableObject {
 
     // Constructors
     public SunStone() {
-        super(false, 0);
+	super(false, 0);
     }
 
     @Override
     public String getName() {
-        return "Sun Stone";
+	return "Sun Stone";
     }
 
     @Override
     public String getPluralName() {
-        return "Sun Stones";
+	return "Sun Stones";
     }
 
     @Override
     public String getDescription() {
-        return "Sun Stones act as a trigger for other actions when collected.";
+	return "Sun Stones act as a trigger for other actions when collected.";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        inv.addItem(this);
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_SUN_STONE);
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(SunStone.SCORE_GRAB_STONE);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	inv.addItem(this);
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_SUN_STONE);
+	WidgetWarren.getApplication().getGameManager().addToScore(SunStone.SCORE_GRAB_STONE);
     }
 }

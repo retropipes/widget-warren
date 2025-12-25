@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMultipleLock;
 public class SapphireWall extends GenericMultipleLock {
     // Constructors
     public SapphireWall() {
-        super(new SapphireSquare());
+	super(new SapphireSquare());
     }
 
     @Override
     public String getName() {
-        return "Sapphire Wall";
+	return "Sapphire Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Sapphire Walls";
+	return "Sapphire Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Sapphire Walls are impassable without enough Sapphire Squares.";
+	return "Sapphire Walls are impassable without enough Sapphire Squares.";
     }
 }

@@ -11,28 +11,27 @@ import com.puttysoftware.widgetwarren.generic.GenericWall;
 public class Crevasse extends GenericWall {
     // Constructors
     public Crevasse() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Crevasse";
+	return "Crevasse";
     }
 
     @Override
     public String getPluralName() {
-        return "Crevasses";
+	return "Crevasses";
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final ObjectInventory inv) {
-        return true;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final ObjectInventory inv) {
+	return true;
     }
 
     @Override
     public String getDescription() {
-        return "Crevasses stop movement, but not arrows, which pass over them unimpeded.";
+	return "Crevasses stop movement, but not arrows, which pass over them unimpeded.";
     }
 }

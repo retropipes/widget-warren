@@ -22,44 +22,41 @@ public class XMLRuleSetSaveTask extends Thread {
 
     // Constructors
     public XMLRuleSetSaveTask(final String file) {
-        this.filename = file;
-        this.setName("XML Rule Set File Writer");
+	this.filename = file;
+	this.setName("XML Rule Set File Writer");
     }
 
     @Override
     public void run() {
-        final Application app = WidgetWarren.getApplication();
-        final String sg = "Rule Set";
-        // filename check
-        final boolean hasExtension = XMLRuleSetSaveTask
-                .hasExtension(this.filename);
-        if (!hasExtension) {
-            this.filename += XMLExtension.getXMLRuleSetExtensionWithPeriod();
-        }
-        try (XDataWriter ruleSetFile = DataIOFactory.createTagWriter(this.filename,
-                "ruleset")) {
-            ruleSetFile.writeInt(RuleSetConstants.MAGIC_NUMBER_2);
-            app.getObjects().writeRuleSetXML(ruleSetFile);
-            CommonDialogs.showTitledDialog(sg + " file saved.",
-                    "Rule Set Picker");
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Saving the " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-        } catch (final Exception ex) {
-            WidgetWarren.logError(ex);
-        }
+	final Application app = WidgetWarren.getApplication();
+	final String sg = "Rule Set";
+	// filename check
+	final boolean hasExtension = XMLRuleSetSaveTask.hasExtension(this.filename);
+	if (!hasExtension) {
+	    this.filename += XMLExtension.getXMLRuleSetExtensionWithPeriod();
+	}
+	try (XDataWriter ruleSetFile = DataIOFactory.createTagWriter(this.filename, "ruleset")) {
+	    ruleSetFile.writeInt(RuleSetConstants.MAGIC_NUMBER_2);
+	    app.getObjects().writeRuleSetXML(ruleSetFile);
+	    CommonDialogs.showTitledDialog(sg + " file saved.", "Rule Set Picker");
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Saving the " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	} catch (final Exception ex) {
+	    WidgetWarren.logError(ex);
+	}
     }
 
     private static boolean hasExtension(final String s) {
-        String ext = null;
-        final int i = s.lastIndexOf('.');
-        if (i > 0 && i < s.length() - 1) {
-            ext = s.substring(i + 1).toLowerCase();
-        }
-        if (ext == null) {
-            return false;
-        } else {
-            return true;
-        }
+	String ext = null;
+	final int i = s.lastIndexOf('.');
+	if (i > 0 && i < s.length() - 1) {
+	    ext = s.substring(i + 1).toLowerCase();
+	}
+	if (ext == null) {
+	    return false;
+	} else {
+	    return true;
+	}
     }
 }

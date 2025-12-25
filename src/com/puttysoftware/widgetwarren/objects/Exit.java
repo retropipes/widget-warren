@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericDirectTeleportTo;
 public class Exit extends GenericDirectTeleportTo {
     // Constructors
     public Exit() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Exit";
+	return "Exit";
     }
 
     @Override
     public String getPluralName() {
-        return "Exits";
+	return "Exits";
     }
 
     @Override
     public String getDescription() {
-        return "Exits send you outside when walked on.";
+	return "Exits send you outside when walked on.";
     }
 }

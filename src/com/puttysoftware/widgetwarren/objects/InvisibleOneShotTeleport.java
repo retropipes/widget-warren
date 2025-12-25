@@ -17,52 +17,48 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class InvisibleOneShotTeleport extends GenericInvisibleTeleport {
     // Constructors
     public InvisibleOneShotTeleport() {
-        super(0, 0, 0);
+	super(0, 0, 0);
     }
 
-    public InvisibleOneShotTeleport(final int destinationRow,
-            final int destinationColumn, final int destinationFloor) {
-        super(destinationRow, destinationColumn, destinationFloor);
+    public InvisibleOneShotTeleport(final int destinationRow, final int destinationColumn, final int destinationFloor) {
+	super(destinationRow, destinationColumn, destinationFloor);
     }
 
     // Scriptability
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().decay();
-        app.getGameManager().updatePositionAbsolute(this.getDestinationRow(),
-                this.getDestinationColumn(), this.getDestinationFloor());
-        WidgetWarren.getApplication().showMessage("Invisible Teleport!");
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().decay();
+	app.getGameManager().updatePositionAbsolute(this.getDestinationRow(), this.getDestinationColumn(),
+		this.getDestinationFloor());
+	WidgetWarren.getApplication().showMessage("Invisible Teleport!");
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public String getName() {
-        return "Invisible One-Shot Teleport";
+	return "Invisible One-Shot Teleport";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Invisible One-Shot Teleports";
+	return "Invisible One-Shot Teleports";
     }
 
     @Override
     public MazeObject editorPropertiesHook() {
-        final MazeEditor me = WidgetWarren.getApplication().getEditor();
-        final MazeObject mo = me.editTeleportDestination(
-                MazeEditor.TELEPORT_TYPE_INVISIBLE_ONESHOT);
-        return mo;
+	final MazeEditor me = WidgetWarren.getApplication().getEditor();
+	final MazeObject mo = me.editTeleportDestination(MazeEditor.TELEPORT_TYPE_INVISIBLE_ONESHOT);
+	return mo;
     }
 
     @Override
     public String getDescription() {
-        return "Invisible One-Shot Teleports are a combination of invisible and one-shot teleport behaviors.";
+	return "Invisible One-Shot Teleports are a combination of invisible and one-shot teleport behaviors.";
     }
 }

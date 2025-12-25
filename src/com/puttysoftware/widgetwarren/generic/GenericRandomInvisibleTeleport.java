@@ -12,12 +12,10 @@ import com.puttysoftware.widgetwarren.game.ObjectInventory;
 import com.puttysoftware.widgetwarren.resourcemanagers.SoundConstants;
 import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 
-public abstract class GenericRandomInvisibleTeleport
-        extends GenericRandomTeleport {
+public abstract class GenericRandomInvisibleTeleport extends GenericRandomTeleport {
     // Constructors
-    public GenericRandomInvisibleTeleport(final int newRandomRangeY,
-            final int newRandomRangeX) {
-        super(newRandomRangeY, newRandomRangeX);
+    public GenericRandomInvisibleTeleport(final int newRandomRangeY, final int newRandomRangeX) {
+	super(newRandomRangeY, newRandomRangeX);
     }
 
     // Scriptability
@@ -25,31 +23,28 @@ public abstract class GenericRandomInvisibleTeleport
     abstract public String getName();
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        int dr, dc;
-        do {
-            dr = this.getDestinationRow();
-            dc = this.getDestinationColumn();
-        } while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
-        app.getGameManager().updatePositionRelative(dr, dc);
-        WidgetWarren.getApplication().showMessage("Invisible Teleport!");
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_TELEPORT);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	int dr, dc;
+	do {
+	    dr = this.getDestinationRow();
+	    dc = this.getDestinationColumn();
+	} while (!app.getGameManager().tryUpdatePositionRelative(dr, dc));
+	app.getGameManager().updatePositionRelative(dr, dc);
+	WidgetWarren.getApplication().showMessage("Invisible Teleport!");
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_TELEPORT);
     }
 
     @Override
     public MazeObject editorPropertiesHook() {
-        final MazeEditor me = WidgetWarren.getApplication().getEditor();
-        final MazeObject mo = me.editTeleportDestination(
-                MazeEditor.TELEPORT_TYPE_RANDOM_INVISIBLE);
-        return mo;
+	final MazeEditor me = WidgetWarren.getApplication().getEditor();
+	final MazeObject mo = me.editTeleportDestination(MazeEditor.TELEPORT_TYPE_RANDOM_INVISIBLE);
+	return mo;
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_RANDOM_INVISIBLE_TELEPORT);
-        this.type.set(TypeConstants.TYPE_RANDOM_TELEPORT);
+	this.type.set(TypeConstants.TYPE_RANDOM_INVISIBLE_TELEPORT);
+	this.type.set(TypeConstants.TYPE_RANDOM_TELEPORT);
     }
 }

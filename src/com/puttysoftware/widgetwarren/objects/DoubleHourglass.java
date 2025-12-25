@@ -17,33 +17,29 @@ public class DoubleHourglass extends GenericTimeModifier {
 
     // Constructors
     public DoubleHourglass() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Double Hourglass";
+	return "Double Hourglass";
     }
 
     @Override
     public String getPluralName() {
-        return "Double Hourglasses";
+	return "Double Hourglasses";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        WidgetWarren.getApplication().getGameManager().decay();
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .extendTimerByInitialValueDoubled();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_GRAB);
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(DoubleHourglass.SCORE_GRAB);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	WidgetWarren.getApplication().getGameManager().decay();
+	WidgetWarren.getApplication().getMazeManager().getMaze().extendTimerByInitialValueDoubled();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_GRAB);
+	WidgetWarren.getApplication().getGameManager().addToScore(DoubleHourglass.SCORE_GRAB);
     }
 
     @Override
     public String getDescription() {
-        return "Double Hourglasses extend the time to solve the current level by double the initial value.";
+	return "Double Hourglasses extend the time to solve the current level by double the initial value.";
     }
 }

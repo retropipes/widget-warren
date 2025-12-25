@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericPort;
 public class VPort extends GenericPort {
     // Constructors
     public VPort() {
-        super(new VPlug(), 'V');
+	super(new VPlug(), 'V');
     }
 }

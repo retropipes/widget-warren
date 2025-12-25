@@ -9,11 +9,11 @@ import com.puttysoftware.widgetwarren.generic.GenericTrappedWall;
 
 public class TrappedWall17 extends GenericTrappedWall {
     public TrappedWall17() {
-        super(17);
+	super(17);
     }
 
     @Override
     public String getDescription() {
-        return "Trapped Walls 17 disappear when any Wall Trap 17 is triggered.";
+	return "Trapped Walls 17 disappear when any Wall Trap 17 is triggered.";
     }
 }

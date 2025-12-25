@@ -17,41 +17,37 @@ public abstract class GenericInventoryableObject extends MazeObject {
     protected static final long SCORE_GRAB = 10L;
 
     // Constructors
-    protected GenericInventoryableObject(final boolean isUsable,
-            final int newUses) {
-        super(false, isUsable, newUses, true);
+    protected GenericInventoryableObject(final boolean isUsable, final int newUses) {
+	super(false, isUsable, newUses, true);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        inv.addItem(this);
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_GRAB);
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(GenericInventoryableObject.SCORE_GRAB);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	inv.addItem(this);
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_GRAB);
+	WidgetWarren.getApplication().getGameManager().addToScore(GenericInventoryableObject.SCORE_GRAB);
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override
     public int getLayer() {
-        return MazeConstants.LAYER_OBJECT;
+	return MazeConstants.LAYER_OBJECT;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        return MazeObject.DEFAULT_CUSTOM_VALUE;
+	return MazeObject.DEFAULT_CUSTOM_VALUE;
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        // Do nothing
+	// Do nothing
     }
 }

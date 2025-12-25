@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericInfiniteKey;
 public class Axe extends GenericInfiniteKey {
     // Constructors
     public Axe() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Axe";
+	return "Axe";
     }
 
     @Override
     public String getPluralName() {
-        return "Axe";
+	return "Axe";
     }
 
     @Override
     public String getDescription() {
-        return "With an Axe, Trees can be cut down. Axes never lose their ability to cut trees.";
+	return "With an Axe, Trees can be cut down. Axes never lose their ability to cut trees.";
     }
 }

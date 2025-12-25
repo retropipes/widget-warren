@@ -11,26 +11,26 @@ import com.puttysoftware.widgetwarren.generic.GenericConditionalTeleport;
 public class OneShotConditionalTeleport extends GenericConditionalTeleport {
     // Constructors
     public OneShotConditionalTeleport() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "One-Shot Conditional Teleport";
+	return "One-Shot Conditional Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "One-Shot Conditional Teleports";
+	return "One-Shot Conditional Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "One-Shot Conditional Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory, then disappear.";
+	return "One-Shot Conditional Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory, then disappear.";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getGameManager().decay();
+	WidgetWarren.getApplication().getGameManager().decay();
     }
 }

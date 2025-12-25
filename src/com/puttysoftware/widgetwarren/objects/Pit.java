@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericChainTeleportDown;
 public class Pit extends GenericChainTeleportDown {
     // Constructors
     public Pit() {
-        super(true);
+	super(true);
     }
 
     @Override
     public String getName() {
-        return "Pit";
+	return "Pit";
     }
 
     @Override
     public String getPluralName() {
-        return "Pits";
+	return "Pits";
     }
 
     @Override
     public String getDescription() {
-        return "Pits dump anything that wanders in to the floor below. If one of these is placed on the bottom-most floor, it is impassable.";
+	return "Pits dump anything that wanders in to the floor below. If one of these is placed on the bottom-most floor, it is impassable.";
     }
 }

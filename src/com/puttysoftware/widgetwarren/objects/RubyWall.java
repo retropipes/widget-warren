@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMultipleLock;
 public class RubyWall extends GenericMultipleLock {
     // Constructors
     public RubyWall() {
-        super(new RubySquare());
+	super(new RubySquare());
     }
 
     @Override
     public String getName() {
-        return "Ruby Wall";
+	return "Ruby Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Ruby Walls";
+	return "Ruby Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Ruby Walls are impassable without enough Ruby Squares.";
+	return "Ruby Walls are impassable without enough Ruby Squares.";
     }
 }

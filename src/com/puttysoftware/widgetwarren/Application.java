@@ -51,186 +51,178 @@ public class Application {
 
     // Constructors
     public Application() {
-        this.objects = new MazeObjectList();
+	this.objects = new MazeObjectList();
     }
 
     // Methods
     void postConstruct() {
-        // Create Managers
-        this.about = new AboutDialog(this.getVersionString());
-        this.guiMgr = new GUIManager();
-        this.menuMgr = new MenuManager();
-        this.gHelpMgr = new GeneralHelpManager();
-        this.oHelpMgr = new ObjectHelpManager();
-        // Process mazes
-        final String mazesDirStr = SandboxManager.getSandboxManager()
-                .getDocumentsDirectory();
-        final File mazeDir = new File(mazesDirStr);
-        final File mazesZipFile = new File(
-                mazesDirStr + File.separator + "mazes.zip");
-        final String[] mazes = mazeDir.list(new XMLMazeFilter());
-        if (mazes == null || mazes.length == 0) {
-            try (InputStream in = Application.class.getResourceAsStream(
-                    "/com/puttysoftware/widgetwarren/resources/mazes/mazes.zip")) {
-                FileUtilities.copyRAMFile(in, mazesZipFile);
-                ZipUtilities.unzipDirectory(mazesZipFile, mazeDir);
-                mazesZipFile.delete();
-            } catch (final IOException ioe) {
-                // Ignore
-            }
-        }
+	// Create Managers
+	this.about = new AboutDialog(this.getVersionString());
+	this.guiMgr = new GUIManager();
+	this.menuMgr = new MenuManager();
+	this.gHelpMgr = new GeneralHelpManager();
+	this.oHelpMgr = new ObjectHelpManager();
+	// Process mazes
+	final String mazesDirStr = SandboxManager.getSandboxManager().getDocumentsDirectory();
+	final File mazeDir = new File(mazesDirStr);
+	final File mazesZipFile = new File(mazesDirStr + File.separator + "mazes.zip");
+	final String[] mazes = mazeDir.list(new XMLMazeFilter());
+	if (mazes == null || mazes.length == 0) {
+	    try (InputStream in = Application.class
+		    .getResourceAsStream("/com/puttysoftware/widgetwarren/resources/mazes/mazes.zip")) {
+		FileUtilities.copyRAMFile(in, mazesZipFile);
+		ZipUtilities.unzipDirectory(mazesZipFile, mazeDir);
+		mazesZipFile.delete();
+	    } catch (final IOException ioe) {
+		// Ignore
+	    }
+	}
     }
 
     public void setInGUI(final boolean value) {
-        this.IN_GUI = value;
+	this.IN_GUI = value;
     }
 
     public void setInPrefs(final boolean value) {
-        this.IN_PREFS = value;
+	this.IN_PREFS = value;
     }
 
     public void setInGame(final boolean value) {
-        this.IN_GAME = value;
+	this.IN_GAME = value;
     }
 
     public void setInEditor(final boolean value) {
-        this.IN_EDITOR = value;
+	this.IN_EDITOR = value;
     }
 
     public int getMode() {
-        if (this.IN_PREFS) {
-            return Application.STATUS_PREFS;
-        } else if (this.IN_GUI) {
-            return Application.STATUS_GUI;
-        } else if (this.IN_GAME) {
-            return Application.STATUS_GAME;
-        } else if (this.IN_EDITOR) {
-            return Application.STATUS_EDITOR;
-        } else {
-            return Application.STATUS_NULL;
-        }
+	if (this.IN_PREFS) {
+	    return Application.STATUS_PREFS;
+	} else if (this.IN_GUI) {
+	    return Application.STATUS_GUI;
+	} else if (this.IN_GAME) {
+	    return Application.STATUS_GAME;
+	} else if (this.IN_EDITOR) {
+	    return Application.STATUS_EDITOR;
+	} else {
+	    return Application.STATUS_NULL;
+	}
     }
 
     public int getFormerMode() {
-        if (this.IN_GUI) {
-            return Application.STATUS_GUI;
-        } else if (this.IN_GAME) {
-            return Application.STATUS_GAME;
-        } else if (this.IN_EDITOR) {
-            return Application.STATUS_EDITOR;
-        } else {
-            return Application.STATUS_NULL;
-        }
+	if (this.IN_GUI) {
+	    return Application.STATUS_GUI;
+	} else if (this.IN_GAME) {
+	    return Application.STATUS_GAME;
+	} else if (this.IN_EDITOR) {
+	    return Application.STATUS_EDITOR;
+	} else {
+	    return Application.STATUS_NULL;
+	}
     }
 
     public void showMessage(final String msg) {
-        if (this.IN_PREFS) {
-            CommonDialogs.showDialog(msg);
-        } else if (this.IN_GUI) {
-            CommonDialogs.showDialog(msg);
-        } else if (this.IN_GAME) {
-            this.getGameManager().setStatusMessage(msg);
-        } else if (this.IN_EDITOR) {
-            this.getEditor().setStatusMessage(msg);
-        } else {
-            CommonDialogs.showDialog(msg);
-        }
+	if (this.IN_PREFS) {
+	    CommonDialogs.showDialog(msg);
+	} else if (this.IN_GUI) {
+	    CommonDialogs.showDialog(msg);
+	} else if (this.IN_GAME) {
+	    this.getGameManager().setStatusMessage(msg);
+	} else if (this.IN_EDITOR) {
+	    this.getEditor().setStatusMessage(msg);
+	} else {
+	    CommonDialogs.showDialog(msg);
+	}
     }
 
     public MenuManager getMenuManager() {
-        return this.menuMgr;
+	return this.menuMgr;
     }
 
     public GUIManager getGUIManager() {
-        return this.guiMgr;
+	return this.guiMgr;
     }
 
     public GameManager getGameManager() {
-        if (this.gameMgr == null) {
-            this.gameMgr = new GameManager();
-        }
-        return this.gameMgr;
+	if (this.gameMgr == null) {
+	    this.gameMgr = new GameManager();
+	}
+	return this.gameMgr;
     }
 
     public MazeManager getMazeManager() {
-        if (this.mazeMgr == null) {
-            this.mazeMgr = new MazeManager();
-        }
-        return this.mazeMgr;
+	if (this.mazeMgr == null) {
+	    this.mazeMgr = new MazeManager();
+	}
+	return this.mazeMgr;
     }
 
     public GeneralHelpManager getGeneralHelpManager() {
-        return this.gHelpMgr;
+	return this.gHelpMgr;
     }
 
     public ObjectHelpManager getObjectHelpManager() {
-        return this.oHelpMgr;
+	return this.oHelpMgr;
     }
 
     public MazeEditor getEditor() {
-        if (this.editor == null) {
-            this.editor = new MazeEditor();
-        }
-        return this.editor;
+	if (this.editor == null) {
+	    this.editor = new MazeEditor();
+	}
+	return this.editor;
     }
 
     public RuleSetPicker getRuleSetPicker() {
-        if (this.rsPicker == null) {
-            this.rsPicker = new RuleSetPicker();
-        }
-        return this.rsPicker;
+	if (this.rsPicker == null) {
+	    this.rsPicker = new RuleSetPicker();
+	}
+	return this.rsPicker;
     }
 
     public AboutDialog getAboutDialog() {
-        return this.about;
+	return this.about;
     }
 
     public void playHighScoreSound() {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_USER_INTERFACE,
-                SoundConstants.SOUND_HIGH_SCORE);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_USER_INTERFACE, SoundConstants.SOUND_HIGH_SCORE);
     }
 
     public void playLogoSound() {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_USER_INTERFACE,
-                SoundConstants.SOUND_LOGO);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_USER_INTERFACE, SoundConstants.SOUND_LOGO);
     }
 
     private String getVersionString() {
-        if (this.isBetaModeEnabled()) {
-            return "" + Application.VERSION_MAJOR + "."
-                    + Application.VERSION_MINOR + "."
-                    + Application.VERSION_BUGFIX + "b"
-                    + Application.VERSION_BETA;
-        } else {
-            return "" + Application.VERSION_MAJOR + "."
-                    + Application.VERSION_MINOR + "."
-                    + Application.VERSION_BUGFIX;
-        }
+	if (this.isBetaModeEnabled()) {
+	    return "" + Application.VERSION_MAJOR + "." + Application.VERSION_MINOR + "." + Application.VERSION_BUGFIX
+		    + "b" + Application.VERSION_BETA;
+	} else {
+	    return "" + Application.VERSION_MAJOR + "." + Application.VERSION_MINOR + "." + Application.VERSION_BUGFIX;
+	}
     }
 
     public JFrame getOutputFrame() {
-        try {
-            if (this.getMode() == Application.STATUS_PREFS) {
-                return PreferencesManager.getPrefFrame();
-            } else if (this.getMode() == Application.STATUS_GUI) {
-                return this.getGUIManager().getGUIFrame();
-            } else if (this.getMode() == Application.STATUS_GAME) {
-                return this.getGameManager().getOutputFrame();
-            } else if (this.getMode() == Application.STATUS_EDITOR) {
-                return this.getEditor().getOutputFrame();
-            } else {
-                return null;
-            }
-        } catch (final NullPointerException npe) {
-            return null;
-        }
+	try {
+	    if (this.getMode() == Application.STATUS_PREFS) {
+		return PreferencesManager.getPrefFrame();
+	    } else if (this.getMode() == Application.STATUS_GUI) {
+		return this.getGUIManager().getGUIFrame();
+	    } else if (this.getMode() == Application.STATUS_GAME) {
+		return this.getGameManager().getOutputFrame();
+	    } else if (this.getMode() == Application.STATUS_EDITOR) {
+		return this.getEditor().getOutputFrame();
+	    } else {
+		return null;
+	    }
+	} catch (final NullPointerException npe) {
+	    return null;
+	}
     }
 
     public MazeObjectList getObjects() {
-        return this.objects;
+	return this.objects;
     }
 
     public boolean isBetaModeEnabled() {
-        return Application.VERSION_BETA > 0;
+	return Application.VERSION_BETA > 0;
     }
 }

@@ -11,21 +11,20 @@ import com.puttysoftware.widgetwarren.objects.TrueSightAmulet;
 public class TrueSight extends MazeEffect {
     // Constructor
     public TrueSight(final int newRounds) {
-        super("True Sight", newRounds);
+	super("True Sight", newRounds);
     }
 
     @Override
     public void customExtendLogic() {
-        // Apply the effect
-        WidgetWarren.getApplication().getGameManager().enableTrueSight();
+	// Apply the effect
+	WidgetWarren.getApplication().getGameManager().enableTrueSight();
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        WidgetWarren.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new TrueSightAmulet());
-        // Undo the effect
-        WidgetWarren.getApplication().getGameManager().disableTrueSight();
+	// Remove item that granted effect from inventory
+	WidgetWarren.getApplication().getGameManager().getObjectInventory().removeItem(new TrueSightAmulet());
+	// Undo the effect
+	WidgetWarren.getApplication().getGameManager().disableTrueSight();
     }
 }

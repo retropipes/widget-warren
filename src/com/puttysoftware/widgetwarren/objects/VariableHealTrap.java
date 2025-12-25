@@ -21,38 +21,33 @@ public class VariableHealTrap extends GenericTrap {
 
     // Constructors
     public VariableHealTrap() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Variable Heal Trap";
+	return "Variable Heal Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Variable Heal Traps";
+	return "Variable Heal Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        this.maxHealing = WidgetWarren.getApplication().getMazeManager()
-                .getMaze().getMaximumHP() / 10;
-        if (this.maxHealing < VariableHealTrap.MIN_HEALING) {
-            this.maxHealing = VariableHealTrap.MIN_HEALING;
-        }
-        this.healingGiven = new RandomRange(VariableHealTrap.MIN_HEALING,
-                this.maxHealing);
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .heal(this.healingGiven.generate());
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_BARRIER);
-        WidgetWarren.getApplication().getGameManager().decay();
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	this.maxHealing = WidgetWarren.getApplication().getMazeManager().getMaze().getMaximumHP() / 10;
+	if (this.maxHealing < VariableHealTrap.MIN_HEALING) {
+	    this.maxHealing = VariableHealTrap.MIN_HEALING;
+	}
+	this.healingGiven = new RandomRange(VariableHealTrap.MIN_HEALING, this.maxHealing);
+	WidgetWarren.getApplication().getMazeManager().getMaze().heal(this.healingGiven.generate());
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_BARRIER);
+	WidgetWarren.getApplication().getGameManager().decay();
     }
 
     @Override
     public String getDescription() {
-        return "Variable Heal Traps heal you when stepped on, then disappear.";
+	return "Variable Heal Traps heal you when stepped on, then disappear.";
     }
 }

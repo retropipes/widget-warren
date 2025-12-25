@@ -10,26 +10,26 @@ import com.puttysoftware.widgetwarren.generic.GenericConditionalTeleport;
 public class InvisibleConditionalTeleport extends GenericConditionalTeleport {
     // Constructors
     public InvisibleConditionalTeleport() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Invisible Conditional Teleport";
+	return "Invisible Conditional Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Invisible Conditional Teleports";
+	return "Invisible Conditional Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "Invisible Conditional Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory, and cannot be seen.";
+	return "Invisible Conditional Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory, and cannot be seen.";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 }

@@ -23,57 +23,53 @@ public class LockedSaveTask extends Thread {
 
     // Constructors
     public LockedSaveTask(final String file) {
-        this.filename = file;
-        this.setName("Locked File Writer");
+	this.filename = file;
+	this.setName("Locked File Writer");
     }
 
     @Override
     public void run() {
-        final Application app = WidgetWarren.getApplication();
-        boolean success = true;
-        final String sg = "Maze";
-        // filename check
-        final boolean hasExtension = LockedSaveTask.hasExtension(this.filename);
-        if (!hasExtension) {
-            this.filename += Extension.getLockedMazeExtensionWithPeriod();
-        }
-        final File mazeFile = new File(this.filename);
-        final File tempLock = new File(Maze.getMazeTempFolder() + "lock.tmp");
-        try {
-            // Set prefix handler
-            app.getMazeManager().getMaze()
-                    .setXMLPrefixHandler(new XMLPrefixHandler());
-            // Set suffix handler
-            app.getMazeManager().getMaze().setXMLSuffixHandler(null);
-            app.getMazeManager().getMaze().writeMazeXML();
-            ZipUtilities.zipDirectory(
-                    new File(app.getMazeManager().getMaze().getBasePath()),
-                    tempLock);
-            // Lock the file
-            LockedWrapper.lock(tempLock, mazeFile);
-            tempLock.delete();
-        } catch (final FileNotFoundException fnfe) {
-            CommonDialogs.showDialog("Writing the locked " + sg.toLowerCase()
-                    + " file failed, probably due to illegal characters in the file name.");
-            success = false;
-        } catch (final Exception ex) {
-            WidgetWarren.logError(ex);
-        }
-        WidgetWarren.getApplication()
-                .showMessage("Locked " + sg + " file saved.");
-        app.getMazeManager().handleDeferredSuccess(success);
+	final Application app = WidgetWarren.getApplication();
+	boolean success = true;
+	final String sg = "Maze";
+	// filename check
+	final boolean hasExtension = LockedSaveTask.hasExtension(this.filename);
+	if (!hasExtension) {
+	    this.filename += Extension.getLockedMazeExtensionWithPeriod();
+	}
+	final File mazeFile = new File(this.filename);
+	final File tempLock = new File(Maze.getMazeTempFolder() + "lock.tmp");
+	try {
+	    // Set prefix handler
+	    app.getMazeManager().getMaze().setXMLPrefixHandler(new XMLPrefixHandler());
+	    // Set suffix handler
+	    app.getMazeManager().getMaze().setXMLSuffixHandler(null);
+	    app.getMazeManager().getMaze().writeMazeXML();
+	    ZipUtilities.zipDirectory(new File(app.getMazeManager().getMaze().getBasePath()), tempLock);
+	    // Lock the file
+	    LockedWrapper.lock(tempLock, mazeFile);
+	    tempLock.delete();
+	} catch (final FileNotFoundException fnfe) {
+	    CommonDialogs.showDialog("Writing the locked " + sg.toLowerCase()
+		    + " file failed, probably due to illegal characters in the file name.");
+	    success = false;
+	} catch (final Exception ex) {
+	    WidgetWarren.logError(ex);
+	}
+	WidgetWarren.getApplication().showMessage("Locked " + sg + " file saved.");
+	app.getMazeManager().handleDeferredSuccess(success);
     }
 
     private static boolean hasExtension(final String s) {
-        String ext = null;
-        final int i = s.lastIndexOf('.');
-        if (i > 0 && i < s.length() - 1) {
-            ext = s.substring(i + 1).toLowerCase();
-        }
-        if (ext == null) {
-            return false;
-        } else {
-            return true;
-        }
+	String ext = null;
+	final int i = s.lastIndexOf('.');
+	if (i > 0 && i < s.length() - 1) {
+	    ext = s.substring(i + 1).toLowerCase();
+	}
+	if (ext == null) {
+	    return false;
+	} else {
+	    return true;
+	}
     }
 }

@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericPlug;
 public class DPlug extends GenericPlug {
     // Constructors
     public DPlug() {
-        super('D');
+	super('D');
     }
 }

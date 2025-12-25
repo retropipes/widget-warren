@@ -13,29 +13,27 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class DarknessGem extends GenericGem {
     // Constructors
     public DarknessGem() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Darkness Gem";
+	return "Darkness Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Darkness Gems";
+	return "Darkness Gems";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .setVisionRadiusToMinimum();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_DARKNESS);
+	WidgetWarren.getApplication().getMazeManager().getMaze().setVisionRadiusToMinimum();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_DARKNESS);
     }
 
     @Override
     public String getDescription() {
-        return "Darkness Gems decrease the visible area to its minimum.";
+	return "Darkness Gems decrease the visible area to its minimum.";
     }
 }

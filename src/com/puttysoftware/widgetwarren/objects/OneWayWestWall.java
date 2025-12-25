@@ -10,27 +10,27 @@ import com.puttysoftware.widgetwarren.generic.TypeConstants;
 
 public class OneWayWestWall extends GenericWall {
     public OneWayWestWall() {
-        super(true, true, true, false, true, true, true, false);
+	super(true, true, true, false, true, true, true, false);
     }
 
     @Override
     public String getName() {
-        return "One-Way West Wall";
+	return "One-Way West Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "One-Way West Walls";
+	return "One-Way West Walls";
     }
 
     @Override
     public String getDescription() {
-        return "One-Way West Walls allow movement through them only West.";
+	return "One-Way West Walls allow movement through them only West.";
     }
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_PLAIN_WALL);
-        this.type.set(TypeConstants.TYPE_WALL);
+	this.type.set(TypeConstants.TYPE_PLAIN_WALL);
+	this.type.set(TypeConstants.TYPE_WALL);
     }
 }

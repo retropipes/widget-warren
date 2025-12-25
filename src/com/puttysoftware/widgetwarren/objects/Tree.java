@@ -15,44 +15,40 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class Tree extends GenericInfiniteLock {
     // Constructors
     public Tree() {
-        super(new Axe());
+	super(new Axe());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need an axe");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need an axe");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        if (!this.getKey().isInfinite()) {
-            inv.removeItem(this.getKey());
-        }
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().decayTo(new CutTree());
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_UNLOCK);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (!this.getKey().isInfinite()) {
+	    inv.removeItem(this.getKey());
+	}
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().decayTo(new CutTree());
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_UNLOCK);
     }
 
     @Override
     public String getName() {
-        return "Tree";
+	return "Tree";
     }
 
     @Override
     public String getPluralName() {
-        return "Trees";
+	return "Trees";
     }
 
     @Override
     public String getDescription() {
-        return "Trees transform into Cut Trees when hit with an Axe.";
+	return "Trees transform into Cut Trees when hit with an Axe.";
     }
 }

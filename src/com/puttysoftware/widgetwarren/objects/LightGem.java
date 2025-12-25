@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericLightModifier;
 public class LightGem extends GenericLightModifier {
     // Constructors
     public LightGem() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Light Gem";
+	return "Light Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Light Gems";
+	return "Light Gems";
     }
 
     @Override
     public String getDescription() {
-        return "Light Gems bathe the immediately adjacent area in permanent light.";
+	return "Light Gems bathe the immediately adjacent area in permanent light.";
     }
 }

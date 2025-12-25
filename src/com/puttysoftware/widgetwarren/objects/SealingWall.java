@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericWall;
 public class SealingWall extends GenericWall {
     // Constructors
     public SealingWall() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Sealing Wall";
+	return "Sealing Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Sealing Walls";
+	return "Sealing Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Sealing Walls are impassable and impossible to destroy.";
+	return "Sealing Walls are impassable and impossible to destroy.";
     }
 }

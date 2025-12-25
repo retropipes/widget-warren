@@ -13,30 +13,27 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 
 public class WallMakingTrap extends GenericTrap {
     public WallMakingTrap() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Wall-Making Trap";
+	return "Wall-Making Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "Wall-Making Traps";
+	return "Wall-Making Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK);
-        WidgetWarren.getApplication().getGameManager()
-                .delayedDecayTo(new Wall());
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK);
+	WidgetWarren.getApplication().getGameManager().delayedDecayTo(new Wall());
     }
 
     @Override
     public String getDescription() {
-        return "Wall-Making Traps create a Wall when you step OFF them.";
+	return "Wall-Making Traps create a Wall when you step OFF them.";
     }
 }

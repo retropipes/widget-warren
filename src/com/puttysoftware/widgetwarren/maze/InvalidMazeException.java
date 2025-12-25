@@ -11,10 +11,10 @@ public class InvalidMazeException extends Exception {
 
     // Constructors
     public InvalidMazeException() {
-        super();
+	super();
     }
 
     public InvalidMazeException(final String msg) {
-        super(msg);
+	super(msg);
     }
 }

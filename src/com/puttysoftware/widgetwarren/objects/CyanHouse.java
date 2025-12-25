@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericDirectTeleportTo;
 public class CyanHouse extends GenericDirectTeleportTo {
     // Constructors
     public CyanHouse() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Cyan House";
+	return "Cyan House";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Houses";
+	return "Cyan Houses";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Houses send you inside when walked on.";
+	return "Cyan Houses send you inside when walked on.";
     }
 }

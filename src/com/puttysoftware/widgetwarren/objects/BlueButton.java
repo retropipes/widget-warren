@@ -9,21 +9,21 @@ import com.puttysoftware.widgetwarren.generic.GenericButton;
 
 public class BlueButton extends GenericButton {
     public BlueButton() {
-        super(new BlueWallOff(), new BlueWallOn());
+	super(new BlueWallOff(), new BlueWallOn());
     }
 
     @Override
     public String getName() {
-        return "Blue Button";
+	return "Blue Button";
     }
 
     @Override
     public String getPluralName() {
-        return "Blue Buttons";
+	return "Blue Buttons";
     }
 
     @Override
     public String getDescription() {
-        return "Blue Buttons will cause all Blue Walls Off to become On, and all Blue Walls On to become Off.";
+	return "Blue Buttons will cause all Blue Walls Off to become On, and all Blue Walls On to become Off.";
     }
 }

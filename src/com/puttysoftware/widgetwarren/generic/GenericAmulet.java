@@ -17,7 +17,7 @@ public abstract class GenericAmulet extends GenericInventoryableObject {
 
     // Constructors
     protected GenericAmulet() {
-        super(false, 0);
+	super(false, 0);
     }
 
     @Override
@@ -25,22 +25,19 @@ public abstract class GenericAmulet extends GenericInventoryableObject {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_AMULET);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_AMULET);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        app.getGameManager().decay();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_GRAB);
-        WidgetWarren.getApplication().getGameManager()
-                .addToScore(GenericAmulet.SCORE_INCREASE);
-        this.postMoveActionHook();
-        inv.addItem(this);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	app.getGameManager().decay();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_GRAB);
+	WidgetWarren.getApplication().getGameManager().addToScore(GenericAmulet.SCORE_INCREASE);
+	this.postMoveActionHook();
+	inv.addItem(this);
     }
 
     public abstract void postMoveActionHook();

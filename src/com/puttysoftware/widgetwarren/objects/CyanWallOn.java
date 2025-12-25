@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericToggleWall;
 public class CyanWallOn extends GenericToggleWall {
     // Constructors
     public CyanWallOn() {
-        super(true);
+	super(true);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Cyan Wall On";
+	return "Cyan Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Cyan Walls On";
+	return "Cyan Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Cyan Walls On can NOT be walked through, and will change to Cyan Walls Off when a Cyan Button is pressed.";
+	return "Cyan Walls On can NOT be walked through, and will change to Cyan Walls Off when a Cyan Button is pressed.";
     }
 }

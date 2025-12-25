@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericTeleportTo;
 public class FinishTo extends GenericTeleportTo {
     // Constructors
     public FinishTo() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Finish To";
+	return "Finish To";
     }
 
     @Override
     public String getPluralName() {
-        return "Finishes To";
+	return "Finishes To";
     }
 
     @Override
     public String getDescription() {
-        return "Finishes To behave like regular Finishes, except that the level they send you to might not be the next one.";
+	return "Finishes To behave like regular Finishes, except that the level they send you to might not be the next one.";
     }
 }

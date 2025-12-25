@@ -10,26 +10,26 @@ import com.puttysoftware.widgetwarren.generic.GenericInvisibleChainTeleportDown;
 public class InvisiblePit extends GenericInvisibleChainTeleportDown {
     // Constructors
     public InvisiblePit() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Invisible Pit";
+	return "Invisible Pit";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Invislble Pits";
+	return "Invislble Pits";
     }
 
     @Override
     public String getDescription() {
-        return "Invisible Pits dump anything that wanders in to the floor below. If one of these is placed on the bottom-most floor, it is impassable.";
+	return "Invisible Pits dump anything that wanders in to the floor below. If one of these is placed on the bottom-most floor, it is impassable.";
     }
 }

@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericToggleWall;
 public class RoseWallOn extends GenericToggleWall {
     // Constructors
     public RoseWallOn() {
-        super(true);
+	super(true);
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Rose Wall On";
+	return "Rose Wall On";
     }
 
     @Override
     public String getPluralName() {
-        return "Rose Walls On";
+	return "Rose Walls On";
     }
 
     @Override
     public String getDescription() {
-        return "Rose Walls On can NOT be walked through, and will change to Rose Walls Off when a Rose Button is pressed.";
+	return "Rose Walls On can NOT be walked through, and will change to Rose Walls Off when a Rose Button is pressed.";
     }
 }

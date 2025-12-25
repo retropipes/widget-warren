@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericMultipleLock;
 public class TopazWall extends GenericMultipleLock {
     // Constructors
     public TopazWall() {
-        super(new TopazSquare());
+	super(new TopazSquare());
     }
 
     @Override
     public String getName() {
-        return "Topaz Wall";
+	return "Topaz Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Topaz Walls";
+	return "Topaz Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Topaz Walls are impassable without enough Topaz Squares.";
+	return "Topaz Walls are impassable without enough Topaz Squares.";
     }
 }

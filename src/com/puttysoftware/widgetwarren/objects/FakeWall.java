@@ -10,26 +10,26 @@ import com.puttysoftware.widgetwarren.generic.GenericPassThroughObject;
 public class FakeWall extends GenericPassThroughObject {
     // Constructors
     public FakeWall() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Fake Wall";
+	return "Fake Wall";
     }
 
     @Override
     public String getGameName() {
-        return "Wall";
+	return "Wall";
     }
 
     @Override
     public String getPluralName() {
-        return "Fake Walls";
+	return "Fake Walls";
     }
 
     @Override
     public String getDescription() {
-        return "Fake Walls look like walls, but can be walked through.";
+	return "Fake Walls look like walls, but can be walked through.";
     }
 }

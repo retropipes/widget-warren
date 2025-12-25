@@ -13,29 +13,27 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class DimnessGem extends GenericGem {
     // Constructors
     public DimnessGem() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Dimness Gem";
+	return "Dimness Gem";
     }
 
     @Override
     public String getPluralName() {
-        return "Dimness Gems";
+	return "Dimness Gems";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .decrementVisionRadius();
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_DARKNESS);
+	WidgetWarren.getApplication().getMazeManager().getMaze().decrementVisionRadius();
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_DARKNESS);
     }
 
     @Override
     public String getDescription() {
-        return "Dimness Gems decrease the visible area by 1.";
+	return "Dimness Gems decrease the visible area by 1.";
     }
 }

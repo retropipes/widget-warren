@@ -8,7 +8,7 @@ package com.puttysoftware.widgetwarren.generic;
 public abstract class GenericPass extends GenericInfiniteKey {
     // Constructors
     protected GenericPass() {
-        super();
+	super();
     }
 
     @Override
@@ -16,10 +16,10 @@ public abstract class GenericPass extends GenericInfiniteKey {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_PASS);
-        this.type.set(TypeConstants.TYPE_INFINITE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_PASS);
+	this.type.set(TypeConstants.TYPE_INFINITE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 }

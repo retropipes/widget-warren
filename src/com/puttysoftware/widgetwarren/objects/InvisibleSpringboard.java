@@ -10,26 +10,26 @@ import com.puttysoftware.widgetwarren.generic.GenericInvisibleChainTeleportUp;
 public class InvisibleSpringboard extends GenericInvisibleChainTeleportUp {
     // Constructors
     public InvisibleSpringboard() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Invisible Springboard";
+	return "Invisible Springboard";
     }
 
     @Override
     public String getGameName() {
-        return "Empty";
+	return "Empty";
     }
 
     @Override
     public String getPluralName() {
-        return "Invislble Springboards";
+	return "Invislble Springboards";
     }
 
     @Override
     public String getDescription() {
-        return "Invisible Springboards bounce anything that wanders into them to the floor above. If one of these is placed on the top-most floor, it is impassable.";
+	return "Invisible Springboards bounce anything that wanders into them to the floor above. If one of these is placed on the top-most floor, it is impassable.";
     }
 }

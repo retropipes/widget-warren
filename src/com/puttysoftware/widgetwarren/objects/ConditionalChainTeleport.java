@@ -15,48 +15,43 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class ConditionalChainTeleport extends GenericConditionalTeleport {
     // Constructors
     public ConditionalChainTeleport() {
-        super();
+	super();
     }
 
     @Override
-    public final void postMoveAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        final Application app = WidgetWarren.getApplication();
-        int testVal;
-        if (this.getSunMoon() == GenericConditionalTeleport.TRIGGER_SUN) {
-            testVal = inv.getItemCount(new SunStone());
-        } else if (this
-                .getSunMoon() == GenericConditionalTeleport.TRIGGER_MOON) {
-            testVal = inv.getItemCount(new MoonStone());
-        } else {
-            testVal = 0;
-        }
-        if (testVal >= this.getTriggerValue()) {
-            app.getGameManager().updatePositionAbsoluteNoEvents(
-                    this.getDestinationRow2(), this.getDestinationColumn2(),
-                    this.getDestinationFloor2(), this.getDestinationLevel());
-        } else {
-            app.getGameManager().updatePositionAbsoluteNoEvents(
-                    this.getDestinationRow(), this.getDestinationColumn(),
-                    this.getDestinationFloor(), this.getDestinationLevel());
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_TELEPORT);
-        this.postMoveActionHook();
+    public final void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	final Application app = WidgetWarren.getApplication();
+	int testVal;
+	if (this.getSunMoon() == GenericConditionalTeleport.TRIGGER_SUN) {
+	    testVal = inv.getItemCount(new SunStone());
+	} else if (this.getSunMoon() == GenericConditionalTeleport.TRIGGER_MOON) {
+	    testVal = inv.getItemCount(new MoonStone());
+	} else {
+	    testVal = 0;
+	}
+	if (testVal >= this.getTriggerValue()) {
+	    app.getGameManager().updatePositionAbsoluteNoEvents(this.getDestinationRow2(), this.getDestinationColumn2(),
+		    this.getDestinationFloor2(), this.getDestinationLevel());
+	} else {
+	    app.getGameManager().updatePositionAbsoluteNoEvents(this.getDestinationRow(), this.getDestinationColumn(),
+		    this.getDestinationFloor(), this.getDestinationLevel());
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_TELEPORT);
+	this.postMoveActionHook();
     }
 
     @Override
     public String getName() {
-        return "Conditional Chain Teleport";
+	return "Conditional Chain Teleport";
     }
 
     @Override
     public String getPluralName() {
-        return "Conditional Chain Teleports";
+	return "Conditional Chain Teleports";
     }
 
     @Override
     public String getDescription() {
-        return "Conditional Chain Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory.";
+	return "Conditional Chain Teleports send you to one of two predetermined destinations when stepped on, depending on how many Sun or Moon Stones are in your inventory.";
     }
 }

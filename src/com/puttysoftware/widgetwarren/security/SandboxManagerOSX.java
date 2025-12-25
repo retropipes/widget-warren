@@ -12,52 +12,51 @@ final class SandboxManagerOSX extends SandboxManager {
 
     // Constructor
     SandboxManagerOSX() {
-        super();
+	super();
     }
 
     // Methods
     @Override
     public String getLibraryDirectory() {
-        String library = System.getProperty("LibraryDirectory");
-        if (library == null) {
-            library = SandboxManagerOSX.getLibraryFallbackDirectory();
-        }
-        return library;
+	String library = System.getProperty("LibraryDirectory");
+	if (library == null) {
+	    library = SandboxManagerOSX.getLibraryFallbackDirectory();
+	}
+	return library;
     }
 
     @Override
     public String getDocumentsDirectory() {
-        String docs = System.getProperty("DocumentsDirectory");
-        if (docs == null) {
-            docs = SandboxManagerOSX.getLibraryFallbackDirectory()
-                    + File.separator + SandboxManagerOSX.DOCUMENTS_FALLBACK_DIR;
-        }
-        return docs;
+	String docs = System.getProperty("DocumentsDirectory");
+	if (docs == null) {
+	    docs = SandboxManagerOSX.getLibraryFallbackDirectory() + File.separator
+		    + SandboxManagerOSX.DOCUMENTS_FALLBACK_DIR;
+	}
+	return docs;
     }
 
     @Override
     public String getCachesDirectory() {
-        String cache = System.getProperty("CachesDirectory");
-        if (cache == null) {
-            cache = SandboxManagerOSX.getLibraryFallbackDirectory()
-                    + File.separator + SandboxManagerOSX.CACHES_FALLBACK_DIR;
-        }
-        return cache;
+	String cache = System.getProperty("CachesDirectory");
+	if (cache == null) {
+	    cache = SandboxManagerOSX.getLibraryFallbackDirectory() + File.separator
+		    + SandboxManagerOSX.CACHES_FALLBACK_DIR;
+	}
+	return cache;
     }
 
     @Override
     public String getSupportDirectory() {
-        String appsupport = System.getProperty("ApplicationSupportDirectory");
-        if (appsupport == null) {
-            appsupport = SandboxManagerOSX.getLibraryFallbackDirectory()
-                    + File.separator
-                    + SandboxManagerOSX.APP_SUPPORT_FALLBACK_DIR;
-        }
-        return appsupport;
+	String appsupport = System.getProperty("ApplicationSupportDirectory");
+	if (appsupport == null) {
+	    appsupport = SandboxManagerOSX.getLibraryFallbackDirectory() + File.separator
+		    + SandboxManagerOSX.APP_SUPPORT_FALLBACK_DIR;
+	}
+	return appsupport;
     }
 
     private static String getLibraryFallbackDirectory() {
-        return System.getenv(SandboxManagerOSX.FALLBACK_PREFIX) + File.separator
-                + SandboxManagerOSX.LIBRARY_FALLBACK_DIR;
+	return System.getenv(SandboxManagerOSX.FALLBACK_PREFIX) + File.separator
+		+ SandboxManagerOSX.LIBRARY_FALLBACK_DIR;
     }
 }

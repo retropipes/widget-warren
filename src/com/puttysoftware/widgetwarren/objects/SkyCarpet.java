@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericCarpet;
 public class SkyCarpet extends GenericCarpet {
     // Constructors
     public SkyCarpet() {
-        super("Sky");
+	super("Sky");
     }
 }

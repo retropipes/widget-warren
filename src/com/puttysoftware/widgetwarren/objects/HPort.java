@@ -10,6 +10,6 @@ import com.puttysoftware.widgetwarren.generic.GenericPort;
 public class HPort extends GenericPort {
     // Constructors
     public HPort() {
-        super(new HPlug(), 'H');
+	super(new HPlug(), 'H');
     }
 }

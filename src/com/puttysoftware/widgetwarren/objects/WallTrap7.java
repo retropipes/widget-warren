@@ -9,11 +9,11 @@ import com.puttysoftware.widgetwarren.generic.GenericWallTrap;
 
 public class WallTrap7 extends GenericWallTrap {
     public WallTrap7() {
-        super(7, new TrappedWall7());
+	super(7, new TrappedWall7());
     }
 
     @Override
     public String getDescription() {
-        return "Wall Traps 7 disappear when stepped on, causing all Trapped Walls 7 to also disappear.";
+	return "Wall Traps 7 disappear when stepped on, causing all Trapped Walls 7 to also disappear.";
     }
 }

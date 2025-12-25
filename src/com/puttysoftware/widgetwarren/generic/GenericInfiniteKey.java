@@ -8,7 +8,7 @@ package com.puttysoftware.widgetwarren.generic;
 public abstract class GenericInfiniteKey extends GenericKey {
     // Constructors
     protected GenericInfiniteKey() {
-        super(true);
+	super(true);
     }
 
     // Scriptability
@@ -17,9 +17,9 @@ public abstract class GenericInfiniteKey extends GenericKey {
 
     @Override
     protected void setTypes() {
-        this.type.set(TypeConstants.TYPE_INFINITE_KEY);
-        this.type.set(TypeConstants.TYPE_KEY);
-        this.type.set(TypeConstants.TYPE_INVENTORYABLE);
-        this.type.set(TypeConstants.TYPE_CONTAINABLE);
+	this.type.set(TypeConstants.TYPE_INFINITE_KEY);
+	this.type.set(TypeConstants.TYPE_KEY);
+	this.type.set(TypeConstants.TYPE_INVENTORYABLE);
+	this.type.set(TypeConstants.TYPE_CONTAINABLE);
     }
 }

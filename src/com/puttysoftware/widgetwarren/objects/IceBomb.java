@@ -18,52 +18,47 @@ public class IceBomb extends GenericUsableObject {
 
     // Constructors
     public IceBomb() {
-        super(1);
+	super(1);
     }
 
     @Override
     public String getName() {
-        return "Ice Bomb";
+	return "Ice Bomb";
     }
 
     @Override
     public String getPluralName() {
-        return "Ice Bombs";
+	return "Ice Bombs";
     }
 
     @Override
     public String getDescription() {
-        return "Ice Bombs freeze anything in an area of radius 2 centered on the target point.";
+	return "Ice Bombs freeze anything in an area of radius 2 centered on the target point.";
     }
 
     @Override
-    public boolean arrowHitAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int arrowType,
-            final ObjectInventory inv) {
-        // Act as if bomb was used
-        this.useAction(null, locX, locY, locZ);
-        // Destroy bomb
-        WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX,
-                locY, locZ);
-        // Stop arrow
-        return false;
+    public boolean arrowHitAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int arrowType, final ObjectInventory inv) {
+	// Act as if bomb was used
+	this.useAction(null, locX, locY, locZ);
+	// Destroy bomb
+	WidgetWarren.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ);
+	// Stop arrow
+	return false;
     }
 
     @Override
-    public void useAction(final MazeObject mo, final int x, final int y,
-            final int z) {
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_EXPLODE);
-        // Freeze objects that react to ice
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .radialScanFreezeObjects(x, y, z, IceBomb.EFFECT_RADIUS);
-        // Freeze ground, too
-        WidgetWarren.getApplication().getMazeManager().getMaze()
-                .radialScanFreezeGround(x, y, z, IceBomb.EFFECT_RADIUS);
+    public void useAction(final MazeObject mo, final int x, final int y, final int z) {
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_EXPLODE);
+	// Freeze objects that react to ice
+	WidgetWarren.getApplication().getMazeManager().getMaze().radialScanFreezeObjects(x, y, z,
+		IceBomb.EFFECT_RADIUS);
+	// Freeze ground, too
+	WidgetWarren.getApplication().getMazeManager().getMaze().radialScanFreezeGround(x, y, z, IceBomb.EFFECT_RADIUS);
     }
 
     @Override
     public void useHelper(final int x, final int y, final int z) {
-        this.useAction(null, x, y, z);
+	this.useAction(null, x, y, z);
     }
 }

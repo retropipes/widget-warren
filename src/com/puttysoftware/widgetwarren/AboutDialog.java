@@ -31,71 +31,68 @@ public class AboutDialog {
 
     // Constructors
     public AboutDialog(final String ver) {
-        this.setUpGUI(ver);
+	this.setUpGUI(ver);
     }
 
     // Methods
     public void showAboutDialog() {
-        this.aboutFrame.setVisible(true);
+	this.aboutFrame.setVisible(true);
     }
 
     void hideAboutDialog() {
-        this.aboutFrame.setVisible(false);
+	this.aboutFrame.setVisible(false);
     }
 
     private void setUpGUI(final String ver) {
-        this.handler = new EventHandler();
-        this.aboutFrame = new JFrame("About WidgetWarren");
-        final Image iconlogo = LogoManager.getLogo();
-        this.aboutFrame.setIconImage(iconlogo);
-        this.aboutPane = new Container();
-        this.textPane = new Container();
-        this.buttonPane = new Container();
-        this.logoPane = new Container();
-        this.aboutOK = new JButton("OK");
-        this.miniLabel = new JLabel("", LogoManager.getMiniatureLogo(),
-                SwingConstants.LEFT);
-        this.aboutOK.setDefaultCapable(true);
-        this.aboutFrame.getRootPane().setDefaultButton(this.aboutOK);
-        this.aboutFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        this.aboutPane.setLayout(new BorderLayout());
-        this.logoPane.setLayout(new FlowLayout());
-        this.logoPane.add(this.miniLabel);
-        this.textPane.setLayout(new GridLayout(4, 1));
-        this.textPane.add(new JLabel("WidgetWarren Version: " + ver));
-        this.textPane.add(new JLabel("Author: Eric Ahnell"));
-        this.textPane.add(new JLabel(
-                "Web Site: http://www.puttysoftware.com/widgetwarren/"));
-        this.textPane.add(new JLabel(
-                "E-mail bug reports to: products@puttysoftware.com  "));
-        this.buttonPane.setLayout(new FlowLayout());
-        this.buttonPane.add(this.aboutOK);
-        this.aboutPane.add(this.logoPane, BorderLayout.WEST);
-        this.aboutPane.add(this.textPane, BorderLayout.CENTER);
-        this.aboutPane.add(this.buttonPane, BorderLayout.SOUTH);
-        this.aboutFrame.setResizable(false);
-        this.aboutOK.addActionListener(this.handler);
-        this.aboutFrame.setContentPane(this.aboutPane);
-        this.aboutFrame.pack();
+	this.handler = new EventHandler();
+	this.aboutFrame = new JFrame("About WidgetWarren");
+	final Image iconlogo = LogoManager.getLogo();
+	this.aboutFrame.setIconImage(iconlogo);
+	this.aboutPane = new Container();
+	this.textPane = new Container();
+	this.buttonPane = new Container();
+	this.logoPane = new Container();
+	this.aboutOK = new JButton("OK");
+	this.miniLabel = new JLabel("", LogoManager.getMiniatureLogo(), SwingConstants.LEFT);
+	this.aboutOK.setDefaultCapable(true);
+	this.aboutFrame.getRootPane().setDefaultButton(this.aboutOK);
+	this.aboutFrame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+	this.aboutPane.setLayout(new BorderLayout());
+	this.logoPane.setLayout(new FlowLayout());
+	this.logoPane.add(this.miniLabel);
+	this.textPane.setLayout(new GridLayout(4, 1));
+	this.textPane.add(new JLabel("WidgetWarren Version: " + ver));
+	this.textPane.add(new JLabel("Author: Eric Ahnell"));
+	this.textPane.add(new JLabel("Web Site: http://www.puttysoftware.com/widgetwarren/"));
+	this.textPane.add(new JLabel("E-mail bug reports to: products@puttysoftware.com  "));
+	this.buttonPane.setLayout(new FlowLayout());
+	this.buttonPane.add(this.aboutOK);
+	this.aboutPane.add(this.logoPane, BorderLayout.WEST);
+	this.aboutPane.add(this.textPane, BorderLayout.CENTER);
+	this.aboutPane.add(this.buttonPane, BorderLayout.SOUTH);
+	this.aboutFrame.setResizable(false);
+	this.aboutOK.addActionListener(this.handler);
+	this.aboutFrame.setContentPane(this.aboutPane);
+	this.aboutFrame.pack();
     }
 
     private class EventHandler implements ActionListener {
-        public EventHandler() {
-            // Do nothing
-        }
+	public EventHandler() {
+	    // Do nothing
+	}
 
-        // Handle buttons
-        @Override
-        public void actionPerformed(final ActionEvent e) {
-            try {
-                final AboutDialog ad = AboutDialog.this;
-                final String cmd = e.getActionCommand();
-                if (cmd.equals("OK")) {
-                    ad.hideAboutDialog();
-                }
-            } catch (final Exception ex) {
-                WidgetWarren.logError(ex);
-            }
-        }
+	// Handle buttons
+	@Override
+	public void actionPerformed(final ActionEvent e) {
+	    try {
+		final AboutDialog ad = AboutDialog.this;
+		final String cmd = e.getActionCommand();
+		if (cmd.equals("OK")) {
+		    ad.hideAboutDialog();
+		}
+	    } catch (final Exception ex) {
+		WidgetWarren.logError(ex);
+	    }
+	}
     }
 }

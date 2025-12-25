@@ -11,13 +11,12 @@ import com.puttysoftware.widgetwarren.objects.IceAmulet;
 public class Icy extends MazeEffect {
     // Constructor
     public Icy(final int newRounds) {
-        super("Icy", newRounds);
+	super("Icy", newRounds);
     }
 
     @Override
     public void customTerminateLogic() {
-        // Remove item that granted effect from inventory
-        WidgetWarren.getApplication().getGameManager().getObjectInventory()
-                .removeItem(new IceAmulet());
+	// Remove item that granted effect from inventory
+	WidgetWarren.getApplication().getGameManager().getObjectInventory().removeItem(new IceAmulet());
     }
 }

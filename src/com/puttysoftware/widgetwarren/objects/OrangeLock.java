@@ -14,32 +14,30 @@ import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
 public class OrangeLock extends GenericSingleLock {
     // Constructors
     public OrangeLock() {
-        super(new OrangeKey());
+	super(new OrangeKey());
     }
 
     // Scriptability
     @Override
-    public void moveFailedAction(final boolean ie, final int dirX,
-            final int dirY, final ObjectInventory inv) {
-        if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
-            WidgetWarren.getApplication().showMessage("You need an orange key");
-        }
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_WALK_FAILED);
+    public void moveFailedAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	if (this.isConditionallyDirectionallySolid(ie, dirX, dirY, inv)) {
+	    WidgetWarren.getApplication().showMessage("You need an orange key");
+	}
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_WALK_FAILED);
     }
 
     @Override
     public String getName() {
-        return "Orange Lock";
+	return "Orange Lock";
     }
 
     @Override
     public String getPluralName() {
-        return "Orange Locks";
+	return "Orange Locks";
     }
 
     @Override
     public String getDescription() {
-        return "Orange Locks require Orange Keys to open.";
+	return "Orange Locks require Orange Keys to open.";
     }
 }

@@ -11,23 +11,23 @@ import java.io.FilenameFilter;
 public class XMLMazeFilter implements FilenameFilter {
     @Override
     public boolean accept(final File dir, final String name) {
-        final String extension = XMLMazeFilter.getExtension(name);
-        if (extension != null) {
-            if (extension.equals(XMLExtension.getXMLMazeExtension())) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
+	final String extension = XMLMazeFilter.getExtension(name);
+	if (extension != null) {
+	    if (extension.equals(XMLExtension.getXMLMazeExtension())) {
+		return true;
+	    } else {
+		return false;
+	    }
+	}
+	return false;
     }
 
     private static String getExtension(final String s) {
-        String ext = null;
-        final int i = s.lastIndexOf('.');
-        if (i > 0 && i < s.length() - 1) {
-            ext = s.substring(i + 1).toLowerCase();
-        }
-        return ext;
+	String ext = null;
+	final int i = s.lastIndexOf('.');
+	if (i > 0 && i < s.length() - 1) {
+	    ext = s.substring(i + 1).toLowerCase();
+	}
+	return ext;
     }
 }

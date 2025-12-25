@@ -10,21 +10,21 @@ import com.puttysoftware.widgetwarren.generic.GenericDirectTeleportTo;
 public class SkyHouse extends GenericDirectTeleportTo {
     // Constructors
     public SkyHouse() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Sky House";
+	return "Sky House";
     }
 
     @Override
     public String getPluralName() {
-        return "Sky Houses";
+	return "Sky Houses";
     }
 
     @Override
     public String getDescription() {
-        return "Sky Houses send you inside when walked on.";
+	return "Sky Houses send you inside when walked on.";
     }
 }

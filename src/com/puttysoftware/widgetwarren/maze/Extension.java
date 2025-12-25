@@ -12,14 +12,14 @@ public class Extension {
 
     // Methods
     public static String getPreferencesExtension() {
-        return Extension.PREFERENCES_EXTENSION;
+	return Extension.PREFERENCES_EXTENSION;
     }
 
     public static String getLockedMazeExtension() {
-        return Extension.LOCKED_MAZE_EXTENSION;
+	return Extension.LOCKED_MAZE_EXTENSION;
     }
 
     public static String getLockedMazeExtensionWithPeriod() {
-        return "." + Extension.LOCKED_MAZE_EXTENSION;
+	return "." + Extension.LOCKED_MAZE_EXTENSION;
     }
 }

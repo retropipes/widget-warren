@@ -15,28 +15,27 @@ public class CounterpoisonAmulet extends GenericAmulet {
 
     // Constructors
     public CounterpoisonAmulet() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "Counterpoison Amulet";
+	return "Counterpoison Amulet";
     }
 
     @Override
     public String getPluralName() {
-        return "Counterpoison Amulets";
+	return "Counterpoison Amulets";
     }
 
     @Override
     public String getDescription() {
-        return "Counterpoison Amulets grant the power to make the air less poisonous for 30 steps. Note that you can only wear one amulet at once.";
+	return "Counterpoison Amulets grant the power to make the air less poisonous for 30 steps. Note that you can only wear one amulet at once.";
     }
 
     @Override
     public void postMoveActionHook() {
-        WidgetWarren.getApplication().getGameManager().activateEffect(
-                MazeEffectConstants.EFFECT_COUNTER_POISONED,
-                CounterpoisonAmulet.EFFECT_DURATION);
+	WidgetWarren.getApplication().getGameManager().activateEffect(MazeEffectConstants.EFFECT_COUNTER_POISONED,
+		CounterpoisonAmulet.EFFECT_DURATION);
     }
 }

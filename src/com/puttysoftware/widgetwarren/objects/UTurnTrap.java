@@ -18,32 +18,29 @@ public class UTurnTrap extends GenericTrap {
 
     // Constructors
     public UTurnTrap() {
-        super();
+	super();
     }
 
     @Override
     public String getName() {
-        return "U Turn Trap";
+	return "U Turn Trap";
     }
 
     @Override
     public String getPluralName() {
-        return "U Turn Traps";
+	return "U Turn Traps";
     }
 
     @Override
-    public void postMoveAction(final boolean ie, final int dirX, final int dirY,
-            final ObjectInventory inv) {
-        WidgetWarren.getApplication()
-                .showMessage("Your controls are turned around!");
-        WidgetWarren.getApplication().getGameManager().activateEffect(
-                MazeEffectConstants.EFFECT_U_TURNED, UTurnTrap.EFFECT_DURATION);
-        SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE,
-                SoundConstants.SOUND_CHANGE);
+    public void postMoveAction(final boolean ie, final int dirX, final int dirY, final ObjectInventory inv) {
+	WidgetWarren.getApplication().showMessage("Your controls are turned around!");
+	WidgetWarren.getApplication().getGameManager().activateEffect(MazeEffectConstants.EFFECT_U_TURNED,
+		UTurnTrap.EFFECT_DURATION);
+	SoundManager.playSound(SoundConstants.SOUND_CATEGORY_SOLVING_MAZE, SoundConstants.SOUND_CHANGE);
     }
 
     @Override
     public String getDescription() {
-        return "U Turn Traps invert your controls for 10 steps when stepped on.";
+	return "U Turn Traps invert your controls for 10 steps when stepped on.";
     }
 }

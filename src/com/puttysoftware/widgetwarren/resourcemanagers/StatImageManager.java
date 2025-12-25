@@ -19,36 +19,34 @@ public class StatImageManager {
     private static Class<?> LOAD_CLASS = StatImageManager.class;
 
     public static BufferedImageIcon getStatImage(final String name) {
-        // Get it from the cache
-        return StatImageCache.getCachedStatImage(name);
+	// Get it from the cache
+	return StatImageCache.getCachedStatImage(name);
     }
 
     static BufferedImageIcon getUncachedStatImage(final String name) {
-        try {
-            // Fetch the icon
-            final String normalName = StatImageManager.normalizeName(name);
-            final URL url = StatImageManager.LOAD_CLASS.getResource(
-                    StatImageManager.LOAD_PATH + normalName + ".png");
-            final BufferedImage image = ImageIO.read(url);
-            final BufferedImageIcon icon = new BufferedImageIcon(image);
-            return ImageScaleManager.getScaledImage(icon);
-        } catch (final IOException ie) {
-            return null;
-        } catch (final NullPointerException np) {
-            return null;
-        } catch (final IllegalArgumentException ia) {
-            return null;
-        }
+	try {
+	    // Fetch the icon
+	    final String normalName = StatImageManager.normalizeName(name);
+	    final URL url = StatImageManager.LOAD_CLASS.getResource(StatImageManager.LOAD_PATH + normalName + ".png");
+	    final BufferedImage image = ImageIO.read(url);
+	    final BufferedImageIcon icon = new BufferedImageIcon(image);
+	    return ImageScaleManager.getScaledImage(icon);
+	} catch (final IOException ie) {
+	    return null;
+	} catch (final NullPointerException np) {
+	    return null;
+	} catch (final IllegalArgumentException ia) {
+	    return null;
+	}
     }
 
     private static String normalizeName(final String name) {
-        final StringBuilder sb = new StringBuilder(name);
-        for (int x = 0; x < sb.length(); x++) {
-            if (!Character.isLetter(sb.charAt(x))
-                    && !Character.isDigit(sb.charAt(x))) {
-                sb.setCharAt(x, '_');
-            }
-        }
-        return sb.toString().toLowerCase();
+	final StringBuilder sb = new StringBuilder(name);
+	for (int x = 0; x < sb.length(); x++) {
+	    if (!Character.isLetter(sb.charAt(x)) && !Character.isDigit(sb.charAt(x))) {
+		sb.setCharAt(x, '_');
+	    }
+	}
+	return sb.toString().toLowerCase();
     }
 }

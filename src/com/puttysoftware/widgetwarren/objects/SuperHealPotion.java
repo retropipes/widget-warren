@@ -11,27 +11,26 @@ import com.puttysoftware.widgetwarren.generic.GenericPotion;
 public class SuperHealPotion extends GenericPotion {
     // Constructors
     public SuperHealPotion() {
-        super(false);
+	super(false);
     }
 
     @Override
     public String getName() {
-        return "Super Heal Potion";
+	return "Super Heal Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Heal Potions";
+	return "Super Heal Potions";
     }
 
     @Override
     public int getEffectValue() {
-        return WidgetWarren.getApplication().getMazeManager().getMaze()
-                .getMaximumHP();
+	return WidgetWarren.getApplication().getMazeManager().getMaze().getMaximumHP();
     }
 
     @Override
     public String getDescription() {
-        return "Super Heal Potions heal you completely when picked up.";
+	return "Super Heal Potions heal you completely when picked up.";
     }
 }

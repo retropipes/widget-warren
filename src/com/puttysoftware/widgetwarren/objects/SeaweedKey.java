@@ -10,22 +10,22 @@ import com.puttysoftware.widgetwarren.generic.GenericSingleKey;
 public class SeaweedKey extends GenericSingleKey {
     // Constructors
     public SeaweedKey() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public String getName() {
-        return "Seaweed Key";
+	return "Seaweed Key";
     }
 
     @Override
     public String getPluralName() {
-        return "Seaweed Keys";
+	return "Seaweed Keys";
     }
 
     @Override
     public String getDescription() {
-        return "Seaweed Keys will unlock Seaweed Locks, and can only be used once.";
+	return "Seaweed Keys will unlock Seaweed Locks, and can only be used once.";
     }
 }

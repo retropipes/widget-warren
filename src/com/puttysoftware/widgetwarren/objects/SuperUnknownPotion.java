@@ -14,22 +14,21 @@ public class SuperUnknownPotion extends GenericPotion {
 
     // Constructors
     public SuperUnknownPotion() {
-        super(true, SuperUnknownPotion.MIN_EFFECT,
-                SuperUnknownPotion.MAX_EFFECT);
+	super(true, SuperUnknownPotion.MIN_EFFECT, SuperUnknownPotion.MAX_EFFECT);
     }
 
     @Override
     public String getName() {
-        return "Super Unknown Potion";
+	return "Super Unknown Potion";
     }
 
     @Override
     public String getPluralName() {
-        return "Super Unknown Potions";
+	return "Super Unknown Potions";
     }
 
     @Override
     public String getDescription() {
-        return "Super Unknown Potions might heal you almost fully or hurt you to the brink of death when picked up.";
+	return "Super Unknown Potions might heal you almost fully or hurt you to the brink of death when picked up.";
     }
 }
