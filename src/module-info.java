@@ -12,5 +12,6 @@ module com.puttysoftware.widgetwarren {
     requires org.retropipes.diane.random;
     requires org.retropipes.diane.sandbox;
     requires org.retropipes.diane.scoring;
+    requires org.retropipes.diane.storage;
     requires java.desktop;
 }
