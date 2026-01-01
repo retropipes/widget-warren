@@ -14,6 +14,9 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import org.retropipes.diane.sandbox.Sandbox;
+
+import com.puttysoftware.widgetwarren.WidgetWarren;
 import com.puttysoftware.widgetwarren.generic.MazeObject;
 import com.puttysoftware.widgetwarren.maze.Extension;
 import com.puttysoftware.widgetwarren.objects.Dirt;
@@ -22,7 +25,6 @@ import com.puttysoftware.widgetwarren.objects.Sand;
 import com.puttysoftware.widgetwarren.objects.Snow;
 import com.puttysoftware.widgetwarren.objects.Tile;
 import com.puttysoftware.widgetwarren.objects.Tundra;
-import com.puttysoftware.widgetwarren.security.SandboxManager;
 
 public class PreferencesManager {
     // Fields
@@ -102,7 +104,7 @@ public class PreferencesManager {
     }
 
     private static String getPrefsDirectory() {
-	return SandboxManager.getSandboxManager().getSupportDirectory() + File.separator;
+	return Sandbox.getSandbox(WidgetWarren.sandboxName()).getSupportDirectory() + File.separator;
     }
 
     private static String getPrefsFileExtension() {
@@ -148,9 +150,9 @@ public class PreferencesManager {
 	} catch (final IOException io) {
 	    // Populate store with defaults
 	    PreferencesManager.storeMgr.setString("LastDirOpen",
-		    SandboxManager.getSandboxManager().getDocumentsDirectory());
+		    Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory());
 	    PreferencesManager.storeMgr.setString("LastDirSave",
-		    SandboxManager.getSandboxManager().getDocumentsDirectory());
+		    Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory());
 	    PreferencesManager.storeMgr.setBoolean("OneMove", true);
 	    for (int x = 0; x < PreferencesManager.SOUNDS_LENGTH; x++) {
 		PreferencesManager.storeMgr.setBoolean("SOUND_" + x, true);

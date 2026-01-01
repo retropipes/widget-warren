@@ -25,6 +25,10 @@ public class WidgetWarren {
     public static Application getApplication() {
 	return WidgetWarren.application;
     }
+    
+    public static String sandboxName() {
+	return WidgetWarren.PROGRAM_NAME;
+    }
 
     public static void logError(final Throwable t) {
 	CommonDialogs.showErrorDialog(WidgetWarren.ERROR_MESSAGE, WidgetWarren.ERROR_TITLE);

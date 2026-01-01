@@ -9,6 +9,7 @@ import java.io.File;
 
 import org.retropipes.diane.fileio.utility.FilenameChecker;
 import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.sandbox.Sandbox;
 
 import com.puttysoftware.widgetwarren.Application;
 import com.puttysoftware.widgetwarren.WidgetWarren;
@@ -16,7 +17,6 @@ import com.puttysoftware.widgetwarren.editor.rulesets.xml.XMLRuleSetFilter;
 import com.puttysoftware.widgetwarren.editor.rulesets.xml.XMLRuleSetLoadTask;
 import com.puttysoftware.widgetwarren.editor.rulesets.xml.XMLRuleSetSaveTask;
 import com.puttysoftware.widgetwarren.maze.xml.XMLExtension;
-import com.puttysoftware.widgetwarren.security.SandboxManager;
 
 public class RuleSetManager {
     // Constructors
@@ -30,7 +30,7 @@ public class RuleSetManager {
 	String filename, extension;
 	final XMLRuleSetFilter xrsf = new XMLRuleSetFilter();
 	final File file = CommonDialogs.showFileOpenDialog(
-		new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), xrsf, "Import Rule Set");
+		new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), xrsf, "Import Rule Set");
 	if (file != null) {
 	    filename = file.getAbsolutePath();
 	    extension = RuleSetManager.getExtension(file);
@@ -63,11 +63,11 @@ public class RuleSetManager {
 	String extension;
 	while (!FilenameChecker.isFilenameOK(fileOnly)) {
 	    final File file = CommonDialogs.showFileSaveDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), "Export Rule Set");
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), "Export Rule Set");
 	    if (file != null) {
 		extension = RuleSetManager.getExtension(file);
 		filename = file.getAbsolutePath();
-		final String dirOnly = SandboxManager.getSandboxManager().getDocumentsDirectory();
+		final String dirOnly = Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory();
 		fileOnly = filename.substring(dirOnly.length() + 1);
 		if (!FilenameChecker.isFilenameOK(fileOnly)) {
 		    CommonDialogs.showErrorDialog("The file name you entered contains illegal characters.\n"

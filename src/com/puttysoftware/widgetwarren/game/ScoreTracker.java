@@ -8,11 +8,12 @@ package com.puttysoftware.widgetwarren.game;
 import java.io.File;
 
 import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.sandbox.Sandbox;
 import org.retropipes.diane.scoring.SavedScoreManager;
 import org.retropipes.diane.scoring.ScoreManager;
 
+import com.puttysoftware.widgetwarren.WidgetWarren;
 import com.puttysoftware.widgetwarren.maze.xml.XMLExtension;
-import com.puttysoftware.widgetwarren.security.SandboxManager;
 
 public class ScoreTracker {
     // Fields
@@ -92,7 +93,7 @@ public class ScoreTracker {
     }
 
     private static String getScoreDirectory() {
-	return SandboxManager.getSandboxManager().getSupportDirectory() + File.separator + "Scores" + File.separator;
+	return Sandbox.getSandbox(WidgetWarren.sandboxName()).getSupportDirectory() + File.separator + "Scores" + File.separator;
     }
 
     private static File getScoresFile(final String filename) {

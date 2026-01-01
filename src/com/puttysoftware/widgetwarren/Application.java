@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import org.retropipes.diane.fileio.utility.FileUtilities;
 import org.retropipes.diane.fileio.utility.ZipUtilities;
 import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.sandbox.Sandbox;
 
 import com.puttysoftware.widgetwarren.editor.MazeEditor;
 import com.puttysoftware.widgetwarren.editor.rulesets.RuleSetPicker;
@@ -24,7 +25,6 @@ import com.puttysoftware.widgetwarren.maze.xml.XMLMazeFilter;
 import com.puttysoftware.widgetwarren.prefs.PreferencesManager;
 import com.puttysoftware.widgetwarren.resourcemanagers.SoundConstants;
 import com.puttysoftware.widgetwarren.resourcemanagers.SoundManager;
-import com.puttysoftware.widgetwarren.security.SandboxManager;
 
 public class Application {
     // Fields
@@ -63,7 +63,7 @@ public class Application {
 	this.gHelpMgr = new GeneralHelpManager();
 	this.oHelpMgr = new ObjectHelpManager();
 	// Process mazes
-	final String mazesDirStr = SandboxManager.getSandboxManager().getDocumentsDirectory();
+	final String mazesDirStr = Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory();
 	final File mazeDir = new File(mazesDirStr);
 	final File mazesZipFile = new File(mazesDirStr + File.separator + "mazes.zip");
 	final String[] mazes = mazeDir.list(new XMLMazeFilter());

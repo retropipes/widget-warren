@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import org.retropipes.diane.fileio.utility.FilenameChecker;
 import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.sandbox.Sandbox;
 
 import com.puttysoftware.widgetwarren.Application;
 import com.puttysoftware.widgetwarren.WidgetWarren;
@@ -24,7 +25,6 @@ import com.puttysoftware.widgetwarren.maze.xml.XMLGameFilter;
 import com.puttysoftware.widgetwarren.maze.xml.XMLLoadTask;
 import com.puttysoftware.widgetwarren.maze.xml.XMLMazeFilter;
 import com.puttysoftware.widgetwarren.maze.xml.XMLSaveTask;
-import com.puttysoftware.widgetwarren.security.SandboxManager;
 
 public class MazeManager {
     // Fields
@@ -190,7 +190,7 @@ public class MazeManager {
 	}
 	if (saved) {
 	    final File file = CommonDialogs.showFileOpenDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), xmf, "Open Which Maze?");
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), xmf, "Open Which Maze?");
 	    if (file != null) {
 		filename = file.getAbsolutePath();
 		extension = MazeManager.getExtension(file);
@@ -240,7 +240,7 @@ public class MazeManager {
 	}
 	if (saved) {
 	    final File file = CommonDialogs.showFileOpenDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), xgf, "Open Which Game?");
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), xgf, "Open Which Game?");
 	    if (file != null) {
 		filename = file.getAbsolutePath();
 		extension = MazeManager.getExtension(file);
@@ -280,7 +280,7 @@ public class MazeManager {
 	}
 	if (saved) {
 	    final File file = CommonDialogs.showFileOpenDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), lf,
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), lf,
 		    "Open Which Locked Maze?");
 	    if (file != null) {
 		filename = file.getAbsolutePath();
@@ -378,11 +378,11 @@ public class MazeManager {
 	String extension;
 	while (!FilenameChecker.isFilenameOK(fileOnly)) {
 	    final File file = CommonDialogs.showFileSaveDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), "Save Maze As...");
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), "Save Maze As...");
 	    if (file != null) {
 		extension = MazeManager.getExtension(file);
 		filename = file.getAbsolutePath();
-		final String dirOnly = SandboxManager.getSandboxManager().getDocumentsDirectory();
+		final String dirOnly = Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory();
 		fileOnly = filename.substring(dirOnly.length() + 1);
 		if (!FilenameChecker.isFilenameOK(fileOnly)) {
 		    CommonDialogs.showErrorDialog("The file name you entered contains illegal characters.\n"
@@ -418,11 +418,11 @@ public class MazeManager {
 	String extension;
 	while (!FilenameChecker.isFilenameOK(fileOnly)) {
 	    final File file = CommonDialogs.showFileSaveDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), "Save Game As...");
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), "Save Game As...");
 	    if (file != null) {
 		extension = MazeManager.getExtension(file);
 		filename = file.getAbsolutePath();
-		final String dirOnly = SandboxManager.getSandboxManager().getDocumentsDirectory();
+		final String dirOnly = Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory();
 		fileOnly = filename.substring(dirOnly.length() + 1);
 		if (!FilenameChecker.isFilenameOK(fileOnly)) {
 		    CommonDialogs.showErrorDialog("The file name you entered contains illegal characters.\n"
@@ -457,11 +457,11 @@ public class MazeManager {
 	String extension;
 	while (!FilenameChecker.isFilenameOK(fileOnly)) {
 	    final File file = CommonDialogs.showFileSaveDialog(
-		    new File(SandboxManager.getSandboxManager().getDocumentsDirectory()), "Save Locked Maze As...");
+		    new File(Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory()), "Save Locked Maze As...");
 	    if (file != null) {
 		extension = MazeManager.getExtension(file);
 		filename = file.getAbsolutePath();
-		final String dirOnly = SandboxManager.getSandboxManager().getDocumentsDirectory();
+		final String dirOnly = Sandbox.getSandbox(WidgetWarren.sandboxName()).getDocumentsDirectory();
 		fileOnly = filename.substring(dirOnly.length() + 1);
 		if (!FilenameChecker.isFilenameOK(fileOnly)) {
 		    CommonDialogs.showErrorDialog("The file name you entered contains illegal characters.\n"

@@ -13,6 +13,7 @@ import org.retropipes.diane.fileio.XDataReader;
 import org.retropipes.diane.fileio.XDataWriter;
 import org.retropipes.diane.fileio.utility.FileUtilities;
 import org.retropipes.diane.random.RandomLongRange;
+import org.retropipes.diane.sandbox.Sandbox;
 
 import com.puttysoftware.widgetwarren.WidgetWarren;
 import com.puttysoftware.widgetwarren.generic.GenericCharacter;
@@ -23,7 +24,6 @@ import com.puttysoftware.widgetwarren.maze.xml.XMLSuffixIO;
 import com.puttysoftware.widgetwarren.objects.Empty;
 import com.puttysoftware.widgetwarren.objects.MovingBlock;
 import com.puttysoftware.widgetwarren.prefs.PreferencesManager;
-import com.puttysoftware.widgetwarren.security.SandboxManager;
 
 public class Maze implements MazeConstants {
     // Properties
@@ -61,7 +61,7 @@ public class Maze implements MazeConstants {
 	this.savedStart = new int[4];
 	final long random = new RandomLongRange(0, Long.MAX_VALUE).generate();
 	final String randomID = Long.toHexString(random);
-	this.basePath = SandboxManager.getSandboxManager().getCachesDirectory() + File.separator + randomID + ".maze";
+	this.basePath = Sandbox.getSandbox(WidgetWarren.sandboxName()).getCachesDirectory() + File.separator + randomID + ".maze";
 	final File base = new File(this.basePath);
 	base.mkdirs();
     }
@@ -73,7 +73,7 @@ public class Maze implements MazeConstants {
 
     // Static methods
     public static String getMazeTempFolder() {
-	return SandboxManager.getSandboxManager().getCachesDirectory();
+	return Sandbox.getSandbox(WidgetWarren.sandboxName()).getCachesDirectory();
     }
 
     public static int getMinLevels() {

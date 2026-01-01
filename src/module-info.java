@@ -8,6 +8,7 @@ module com.puttysoftware.widgetwarren {
     requires org.retropipes.diane.integration;
     requires org.retropipes.diane.internal;
     requires org.retropipes.diane.random;
+    requires org.retropipes.diane.sandbox;
     requires org.retropipes.diane.scoring;
     requires java.desktop;
 }
