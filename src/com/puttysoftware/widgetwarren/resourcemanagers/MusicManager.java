@@ -8,7 +8,8 @@ package com.puttysoftware.widgetwarren.resourcemanagers;
 import java.net.URL;
 import java.nio.BufferUnderflowException;
 
-import com.puttysoftware.oggplayer.OggPlayer;
+import org.retropipes.diane.asset.ogg.DianeOggPlayer;
+
 import com.puttysoftware.widgetwarren.WidgetWarren;
 import com.puttysoftware.widgetwarren.prefs.PreferencesManager;
 
@@ -16,13 +17,13 @@ public class MusicManager {
     private static final String DEFAULT_LOAD_PATH = "/com/puttysoftware/widgetwarren/resources/music/";
     private static String LOAD_PATH = MusicManager.DEFAULT_LOAD_PATH;
     private static Class<?> LOAD_CLASS = MusicManager.class;
-    private static OggPlayer CURRENT_MUSIC;
+    private static DianeOggPlayer CURRENT_MUSIC;
 
-    private static OggPlayer getMusic(final String filename) {
+    private static DianeOggPlayer getMusic(final String filename) {
 	try {
 	    final URL url = MusicManager.LOAD_CLASS
 		    .getResource(MusicManager.LOAD_PATH + filename.toLowerCase() + ".ogg");
-	    return new OggPlayer(url);
+	    return DianeOggPlayer.loadLoopedResource(url);
 	} catch (final NullPointerException np) {
 	    return null;
 	}
@@ -32,7 +33,7 @@ public class MusicManager {
 	MusicManager.CURRENT_MUSIC = MusicManager.getMusic(musicName);
 	if (MusicManager.CURRENT_MUSIC != null) {
 	    // Play the music
-	    MusicManager.CURRENT_MUSIC.playLoop();
+	    MusicManager.CURRENT_MUSIC.play();
 	}
     }
 
@@ -46,7 +47,7 @@ public class MusicManager {
 	if (MusicManager.isMusicPlaying()) {
 	    // Stop the music
 	    try {
-		MusicManager.CURRENT_MUSIC.stopLoop();
+		DianeOggPlayer.stopPlaying();
 	    } catch (final BufferUnderflowException bue) {
 		// Ignore
 	    } catch (final NullPointerException np) {

@@ -1,5 +1,6 @@
 module com.puttysoftware.widgetwarren {
     requires org.retropipes.diane.asset.image;
+    requires org.retropipes.diane.asset.ogg;
     requires org.retropipes.diane.asset.sound;
     requires org.retropipes.diane.fileio;
     requires org.retropipes.diane.fileio.utility;
