@@ -7,9 +7,9 @@ package com.puttysoftware.widgetwarren;
 
 import org.retropipes.diane.Diane;
 import org.retropipes.diane.gui.dialog.CommonDialogs;
+import org.retropipes.diane.integration.Integration;
 
-import com.puttysoftware.platform.Platform;
-import com.puttysoftware.widgetwarren.prefs.PreferencesManager;
+import com.puttysoftware.widgetwarren.prefs.PreferencesLauncher;
 import com.puttysoftware.widgetwarren.resourcemanagers.LogoManager;
 
 public class WidgetWarren {
@@ -34,18 +34,16 @@ public class WidgetWarren {
     public static void main(final String[] args) {
 	try {
 	    // Integrate with host platform
-	    Platform.hookLAF(WidgetWarren.PROGRAM_NAME);
+	    Diane.installDefaultErrorHandler(PROGRAM_NAME);
+	    Integration i = Integration.integrate();
 	    WidgetWarren.application = new Application();
 	    WidgetWarren.application.postConstruct();
 	    WidgetWarren.application.playLogoSound();
 	    WidgetWarren.application.getGUIManager().showGUI();
 	    // Register platform hooks
-	    Platform.hookAbout(WidgetWarren.application.getAboutDialog(),
-		    WidgetWarren.application.getAboutDialog().getClass().getDeclaredMethod("showAboutDialog"));
-	    Platform.hookPreferences(PreferencesManager.class, PreferencesManager.class.getDeclaredMethod("showPrefs"));
-	    Platform.hookQuit(WidgetWarren.application.getGUIManager(),
-		    WidgetWarren.application.getGUIManager().getClass().getDeclaredMethod("quitHandler"));
-	    Platform.hookDockIcon(LogoManager.getLogo());
+	    i.setAboutHandler(WidgetWarren.application.getAboutDialog());
+	    i.setPreferencesHandler(new PreferencesLauncher());
+	    i.setQuitHandler(WidgetWarren.application.getGUIManager());
 	    // Set up Common Dialogs
 	    CommonDialogs.setDefaultTitle(WidgetWarren.PROGRAM_NAME);
 	    CommonDialogs.setIcon(LogoManager.getMicroLogo());
