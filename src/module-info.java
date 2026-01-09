@@ -14,4 +14,7 @@ module com.puttysoftware.widgetwarren {
     requires org.retropipes.diane.scoring;
     requires org.retropipes.diane.storage;
     requires java.desktop;
+
+    uses javax.sound.sampled.spi.AudioFileReader;
+    uses javax.sound.sampled.spi.FormatConversionProvider;
 }
